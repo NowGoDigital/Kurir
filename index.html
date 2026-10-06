@@ -4,1432 +4,1053 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- SEO -->
   <title>Jasa Kurir Lombok Cepat, Aman, Terpercaya | Lombok Kurir</title>
-  <meta name="description" content="Lombok Kurir melayani pengiriman dokumen, paket, makanan, belanjaan, dan oleh-oleh seputar Mataram, Lombok Barat, Lombok Tengah. Buka setiap hari termasuk Minggu. Order cepat via WhatsApp." />
-  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Lombok Kurir melayani pengiriman dokumen, paket, makanan, belanjaan, dan oleh-oleh seputar Mataram, Lombok Barat, Lombok Tengah. Buka setiap hari termasuk Minggu." />
   <meta name="theme-color" content="#0f766e" />
 
-  <!-- GANTI dengan URL website asli -->
-  <link rel="canonical" href="https://lombokkurir.com/" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Jasa Kurir Lombok Cepat, Aman, Terpercaya | Lombok Kurir" />
-  <meta property="og:description" content="Jasa kurir seputar Lombok. Kirim dokumen, paket, makanan, belanjaan, dan oleh-oleh. Buka setiap hari termasuk Minggu." />
-  <meta property="og:url" content="https://lombokkurir.com/" />
-  <!-- GANTI dengan URL gambar OG asli -->
-  <meta property="og:image" content="https://lombokkurir.com/og-image.jpg" />
-
-  <!-- Favicon sederhana -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛵</text></svg>" />
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50:  '#ecfdf5',
+              100: '#d1fae5',
+              200: '#a7f3d0',
+              300: '#6ee7b7',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            },
+            accent: {
+              500: '#f97316',
+              600: '#ea580c',
+            }
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            'fade-in': 'fadeIn 1s ease-out forwards',
+            'slide-in': 'slideIn 0.8s ease-out forwards',
+            'marquee': 'marquee 30s linear infinite',
+            'pulse-ring': 'pulseRing 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite',
+            'float': 'float 3s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideIn: {
+              '0%': { opacity: '0', transform: 'translateX(-30px)' },
+              '100%': { opacity: '1', transform: 'translateX(0)' },
+            },
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            },
+            pulseRing: {
+              '0%': { transform: 'scale(.8)', opacity: '.8' },
+              '80%, 100%': { transform: 'scale(2)', opacity: '0' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
 
   <style>
-    :root {
-      --primary: #0f766e;
-      --primary-dark: #115e59;
-      --accent: #f97316;
-      --dark: #111827;
-      --muted: #6b7280;
-      --soft: #f8fafc;
-      --line: #e5e7eb;
-      --white: #ffffff;
-      --wa: #22c55e;
-      --shadow: 0 18px 50px rgba(17, 24, 39, 0.08);
-      --radius: 20px;
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+
+    /* Glass effect */
+    .glass {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .glass.scrolled {
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--dark);
-      background: var(--white);
-      line-height: 1.65;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    ul {
-      padding-left: 18px;
-      margin: 0;
-    }
-
-    .skip-link {
+    /* Hero Carousel */
+    .hero-slide {
       position: absolute;
-      left: -9999px;
-      top: auto;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+      pointer-events: none;
+    }
+    .hero-slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .hero-slide .bg-image {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.05);
+      transition: transform 8s ease-out;
+    }
+    .hero-slide.active .bg-image {
+      transform: scale(1);
+    }
+    .hero-slide .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(6, 78, 59, 0.92) 0%, rgba(4, 120, 87, 0.75) 50%, rgba(0, 0, 0, 0.45) 100%);
+    }
+    .hero-slide .content {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease-out 0.3s;
+    }
+    .hero-slide.active .content {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .skip-link:focus {
-      left: 12px;
-      top: 12px;
-      width: auto;
-      height: auto;
+    /* Bento hover */
+    .bento-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .bento-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 50px -12px rgba(16, 185, 129, 0.25);
+    }
+    .bento-card .icon-wrap {
+      transition: transform 0.4s ease;
+    }
+    .bento-card:hover .icon-wrap {
+      transform: scale(1.1) rotate(-5deg);
+    }
+
+    /* Timeline connector */
+    .timeline-line {
+      position: absolute;
+      top: 24px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #10b981, transparent);
+      z-index: 0;
+    }
+
+    /* Marquee */
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 30s linear infinite;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+
+    /* Reveal on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Floating button */
+    .wa-float-ring {
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      background: #22c55e;
+      animation: pulseRing 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+      z-index: -1;
+    }
+
+    /* Gradient text */
+    .gradient-text {
+      background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #10b981; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: #059669; }
+
+    /* Dots indicator */
+    .dot {
+      transition: all 0.3s ease;
+    }
+    .dot.active {
+      width: 32px;
       background: #fff;
-      padding: 10px 14px;
-      border-radius: 12px;
-      z-index: 3000;
-      box-shadow: var(--shadow);
     }
 
-    .container {
-      width: min(1120px, 92%);
-      margin-inline: auto;
+    /* Noise texture subtle */
+    .noise::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.15'/%3E%3C/svg%3E");
+      opacity: 0.4;
+      pointer-events: none;
+      mix-blend-mode: overlay;
     }
 
-    .section {
-      padding: 72px 0;
-    }
-
-    .section.soft {
-      background: var(--soft);
-    }
-
-    .section-head {
-      max-width: 780px;
-      margin: 0 auto 30px;
-      text-align: center;
-    }
-
-    .kicker {
-      display: inline-block;
-      color: var(--primary);
-      font-size: 0.82rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-      margin: 0 0 10px;
-    }
-
-    h1, h2, h3 {
-      line-height: 1.15;
-      margin: 0 0 12px;
-    }
-
-    h1 {
-      font-size: clamp(2.1rem, 4vw, 3.5rem);
-    }
-
-    h2 {
-      font-size: clamp(1.7rem, 3vw, 2.45rem);
-    }
-
-    h3 {
-      font-size: 1.08rem;
-    }
-
-    p {
-      margin: 0 0 14px;
-    }
-
-    .lead {
-      color: var(--muted);
-      font-size: 1.04rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      min-height: 48px;
-      padding: 12px 18px;
-      border-radius: 14px;
-      border: 1px solid transparent;
-      font-weight: 700;
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: #fff;
-    }
-
-    .btn-accent {
-      background: var(--accent);
-      color: #fff;
-    }
-
-    .btn-wa {
-      background: var(--wa);
-      color: #fff;
-    }
-
-    .btn-outline {
-      border-color: var(--line);
-      color: var(--dark);
-      background: #fff;
-    }
-
-    .btn-light {
-      background: #fff;
-      color: var(--primary-dark);
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.96);
+    /* Arrow button */
+    .arrow-btn {
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 14px 0;
-      position: relative;
-    }
-
-    .brand {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-      font-weight: 800;
-      color: var(--dark);
-    }
-
-    .brand strong {
-      font-size: 1.05rem;
-    }
-
-    .brand span {
-      color: var(--primary);
-      font-size: 0.78rem;
-      font-weight: 700;
-    }
-
-    .menu-toggle {
-      display: none;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 10px 12px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    .menu {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .menu a {
-      color: #374151;
-      font-weight: 600;
-    }
-
-    .menu a:hover {
-      color: var(--primary);
-    }
-
-    .hero {
-      background:
-        radial-gradient(circle at top right, rgba(15, 118, 110, 0.12), transparent 25%),
-        linear-gradient(135deg, #f0fdfa 0%, #ffffff 45%);
-      padding: 78px 0 46px;
-    }
-
-    .hero-grid {
-      display: grid;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin: 0 0 14px;
-      background: #ccfbf1;
-      color: var(--primary-dark);
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 0.86rem;
-      font-weight: 800;
-    }
-
-    .hero-copy .lead {
-      max-width: 700px;
-    }
-
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin: 20px 0 18px;
-    }
-
-    .badges {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      padding: 0;
-      margin: 0;
-    }
-
-    .badges li {
-      background: #fff;
-      border: 1px solid var(--line);
-      color: #374151;
-      padding: 8px 11px;
-      border-radius: 999px;
-      font-size: 0.88rem;
-      font-weight: 600;
-    }
-
-    .hero-panel {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-      padding: 24px;
-    }
-
-    .hero-panel .panel-title {
-      font-size: 1.15rem;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-
-    .hero-panel ul {
-      margin-bottom: 18px;
-      color: var(--muted);
-    }
-
-    .hero-panel li {
-      margin-bottom: 8px;
-    }
-
-    .panel-cta {
-      display: grid;
-      gap: 10px;
-    }
-
-    .trustbar {
-      background: var(--primary);
-      color: #fff;
-      padding: 18px 0;
-    }
-
-    .trustbar-grid {
-      display: grid;
-      gap: 12px;
-    }
-
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-    }
-
-    .grid {
-      display: grid;
-      gap: 18px;
-    }
-
-    .grid-3 {
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    }
-
-    .grid-2 {
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-
-    .card {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 22px;
-      height: 100%;
-    }
-
-    .card p {
-      color: var(--muted);
-      margin-bottom: 0;
-    }
-
-    .icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      font-size: 1.25rem;
-      background: #ecfeff;
-      margin-bottom: 14px;
-    }
-
-    .highlight-card {
-      background: linear-gradient(135deg, #fff7ed, #ffffff);
-      border-color: #fed7aa;
-    }
-
-    .steps {
-      display: grid;
-      gap: 18px;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    }
-
-    .step .num {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: var(--primary);
-      color: #fff;
-      display: grid;
-      place-items: center;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-
-    .order-box {
-      margin-top: 30px;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-      padding: 26px;
-    }
-
-    .order-box h3 {
-      font-size: 1.35rem;
-      margin-bottom: 8px;
-    }
-
-    .form-grid {
-      display: grid;
-      gap: 14px;
-      margin-top: 20px;
-    }
-
-    .form-field {
-      display: grid;
-      gap: 6px;
-    }
-
-    label {
-      font-weight: 700;
-      font-size: 0.95rem;
-    }
-
-    input, textarea, select {
-      width: 100%;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 13px 14px;
-      font: inherit;
-      background: #fff;
-    }
-
-    input:focus, textarea:focus, select:focus {
-      outline: 2px solid rgba(15, 118, 110, 0.18);
-      border-color: var(--primary);
-    }
-
-    .radio-list {
-      display: grid;
-      gap: 10px;
-    }
-
-    .radio-item {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 12px 14px;
-      font-weight: 600;
-    }
-
-    .radio-item input {
-      width: auto;
-      margin-top: 4px;
-    }
-
-    .full {
-      grid-column: 1 / -1;
-    }
-
-    .form-note {
-      color: var(--muted);
-      font-size: 0.92rem;
-      margin-top: 10px;
-    }
-
-    .area-grid {
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    }
-
-    .area-card h3 {
-      margin-bottom: 10px;
-    }
-
-    .area-card ul {
-      color: var(--muted);
-    }
-
-    .faq-list {
-      max-width: 860px;
-      margin: 0 auto;
-      display: grid;
-      gap: 14px;
-    }
-
-    details {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 16px 18px;
-    }
-
-    summary {
-      cursor: pointer;
-      font-weight: 700;
-      list-style: none;
-    }
-
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    details p {
-      margin: 12px 0 0;
-      color: var(--muted);
-    }
-
-    .testi-card {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .stars {
-      color: #f59e0b;
-      letter-spacing: 2px;
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
-
-    .testi-person {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--primary);
-      color: #fff;
-      display: grid;
-      place-items: center;
-      font-weight: 800;
-      flex-shrink: 0;
-    }
-
-    .person-name {
-      font-weight: 800;
-      margin: 0;
-    }
-
-    .person-role {
-      color: var(--muted);
-      font-size: 0.92rem;
-      margin: 0;
-    }
-
-    .contact-section {
-      background:
-        radial-gradient(circle at top left, rgba(255, 255, 255, 0.10), transparent 20%),
-        linear-gradient(135deg, #115e59, #0f766e);
-      color: #fff;
-    }
-
-    .contact-section .section-head p,
-    .contact-section .lead {
-      color: rgba(255, 255, 255, 0.85);
-    }
-
-    .contact-grid {
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    }
-
-    .contact-card {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: #fff;
-    }
-
-    .contact-card p {
-      color: rgba(255, 255, 255, 0.85);
-    }
-
-    .contact-card .icon {
-      background: rgba(255, 255, 255, 0.14);
-    }
-
-    .contact-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      margin-top: 26px;
-    }
-
-    .footer {
-      background: #082f49;
-      color: #fff;
-      padding: 56px 0 20px;
-    }
-
-    .footer a {
-      color: #d1fae5;
-    }
-
-    .footer a:hover {
-      text-decoration: underline;
-    }
-
-    .footer-grid {
-      display: grid;
-      gap: 22px;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      padding-bottom: 28px;
-    }
-
-    .footer h3 {
-      color: #fff;
-      font-size: 1rem;
-      margin-bottom: 12px;
-    }
-
-    .footer p, .footer li {
-      color: #bae6fd;
-      font-size: 0.95rem;
-    }
-
-    .footer ul {
-      list-style: none;
-      padding: 0;
-      display: grid;
-      gap: 8px;
-    }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
-      padding-top: 18px;
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      color: #bae6fd;
-      font-size: 0.92rem;
-    }
-
-    .wa-float {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 1200;
-      background: var(--wa);
-      color: #fff;
-      padding: 14px 18px;
-      border-radius: 999px;
-      font-weight: 800;
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    @media (min-width: 900px) {
-      .trustbar-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-
-      .form-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 960px) {
-      .hero-grid {
-        grid-template-columns: 1.12fr 0.88fr;
-      }
-    }
-
-    @media (max-width: 860px) {
-      .menu-toggle {
-        display: inline-flex;
-      }
-
-      .menu {
-        display: none;
-        position: absolute;
-        top: calc(100% + 12px);
-        left: 0;
-        right: 0;
-        background: #fff;
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        padding: 18px;
-        flex-direction: column;
-        align-items: flex-start;
-        box-shadow: var(--shadow);
-      }
-
-      .menu.open {
-        display: flex;
-      }
-
-      .hero {
-        padding-top: 56px;
-      }
-
-      .section {
-        padding: 58px 0;
-      }
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      transition: all 0.3s ease;
+    }
+    .arrow-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
+
+    /* Menu mobile */
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .mobile-menu.open {
+      max-height: 500px;
     }
   </style>
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": ["LocalBusiness", "CourierService"],
-        "@id": "https://lombokkurir.com/#business",
-        "name": "Lombok Kurir",
-        "description": "Jasa kurir dan pengiriman antar-jemput barang serta dokumen seputar Lombok. Melayani dokumen, paket, makanan, belanjaan, oleh-oleh, dan barang lainnya. Buka setiap hari termasuk Minggu.",
-        "url": "https://lombokkurir.com/",
-        "telephone": "+6287864443131",
-        "priceRange": "Rp",
-        "areaServed": [
-          {
-            "@type": "Place",
-            "name": "Kota Mataram"
-          },
-          {
-            "@type": "Place",
-            "name": "Lombok Barat"
-          },
-          {
-            "@type": "Place",
-            "name": "Lombok Tengah"
-          }
-        ],
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday",
-              "Saturday",
-              "Sunday"
-            ],
-            "opens": "08:00",
-            "closes": "21:00"
-          }
-        ],
-        "contactPoint": [
-          {
-            "@type": "ContactPoint",
-            "telephone": "+6287864443636",
-            "contactType": "customer service",
-            "areaServed": "ID",
-            "availableLanguage": "Indonesian"
-          }
-        ],
-        "sameAs": [
-          "https://tiktok.com/@jasakurirlombok"
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Apakah Lombok Kurir buka hari Minggu?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Ya. Lombok Kurir tetap membuka order pada hari Minggu dan hari libur tertentu selama kurir tersedia. Untuk memastikan jadwal dan area, silakan chat terlebih dahulu."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Bagaimana cara order Lombok Kurir?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Anda bisa chat WhatsApp atau mengisi form order di website. Sebutkan jenis barang, alamat jemput, alamat tujuan, dan waktu pengambilan. Setelah itu kami akan konfirmasi tarif dan jadwal kurir."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Apakah kurir bisa menjemput barang?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Bisa. Setelah order dikonfirmasi, kurir akan datang ke alamat penjemputan untuk mengambil barang dan mengantarnya ke alamat tujuan."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Berapa ongkir Lombok Kurir?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Tarif pengiriman disesuaikan dengan jarak, jenis barang, dan waktu pengambilan. Silakan chat WhatsApp untuk cek ongkir dengan cepat."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Area mana saja yang dilayani?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Kami melayani Kota Mataram, Lombok Barat, Lombok Tengah, dan area sekitar. Untuk area lainnya, silakan konfirmasi terlebih dahulu via WhatsApp."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Apakah bisa tracking posisi barang?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Bisa. Anda dapat meminta update posisi kurir melalui WhatsApp sejak penjemputan sampai barang tiba di tujuan."
-            }
-          }
-        ]
-      }
-    ]
-  }
-  </script>
 </head>
-<body>
-  <a class="skip-link" href="#konten">Langsung ke konten</a>
+<body class="bg-white text-slate-900">
 
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container nav">
-      <a href="#beranda" class="brand" aria-label="Lombok Kurir">
-        <strong>LOMBOK KURIR</strong>
-        <span>Cepat • Aman • Terpercaya</span>
-      </a>
+  <!-- ============ NAVBAR ============ -->
+  <header id="navbar" class="fixed top-0 inset-x-0 z-50 glass transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-5 lg:px-8">
+      <div class="flex items-center justify-between h-18 py-3">
+        <a href="#beranda" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 grid place-items-center text-white text-xl shadow-lg shadow-brand-500/30 group-hover:scale-110 transition">
+            🛵
+          </div>
+          <div class="leading-tight">
+            <div class="font-extrabold text-base tracking-tight">Lombok <span class="gradient-text">Kurir</span></div>
+            <div class="text-[11px] font-semibold text-brand-700 tracking-wider uppercase">Cepat • Aman • Terpercaya</div>
+          </div>
+        </a>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Buka menu navigasi">☰ Menu</button>
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold">
+          <a href="#beranda" class="hover:text-brand-600 transition">Beranda</a>
+          <a href="#layanan" class="hover:text-brand-600 transition">Layanan</a>
+          <a href="#keunggulan" class="hover:text-brand-600 transition">Keunggulan</a>
+          <a href="#cara-order" class="hover:text-brand-600 transition">Cara Order</a>
+          <a href="#area" class="hover:text-brand-600 transition">Area</a>
+          <a href="#faq" class="hover:text-brand-600 transition">FAQ</a>
+          <a href="#kontak" class="hover:text-brand-600 transition">Kontak</a>
+        </nav>
 
-      <nav class="menu" id="menu" aria-label="Menu utama">
-        <a href="#beranda">Beranda</a>
-        <a href="#layanan">Layanan</a>
-        <a href="#keunggulan">Keunggulan</a>
-        <a href="#cara-order">Cara Order</a>
-        <a href="#area">Area</a>
-        <a href="#faq">FAQ</a>
-        <a href="#kontak">Kontak</a>
-        <a class="btn btn-primary" href="https://wa.me/6287864443131?text=Halo%20Lombok%20Kurir!%20Saya%20mau%20order%20antar%20barang." target="_blank" rel="noopener">Order Sekarang</a>
-      </nav>
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://wa.me/6287864443131?text=Halo%20Lombok%20Kurir!%20Saya%20mau%20order%20antar%20barang." target="_blank" rel="noopener"
+             class="group relative inline-flex items-center gap-2 bg-gradient-to-r from-brand-600 to-brand-700 text-white font-bold px-5 py-2.5 rounded-full shadow-lg shadow-brand-500/30 hover:shadow-xl hover:shadow-brand-500/40 hover:-translate-y-0.5 transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Order Sekarang
+          </a>
+        </div>
+
+        <button id="menuBtn" class="lg:hidden p-2 rounded-xl hover:bg-slate-100" aria-label="Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <div id="mobileMenu" class="mobile-menu lg:hidden">
+        <nav class="flex flex-col gap-1 py-4 border-t border-slate-200">
+          <a href="#beranda" class="px-4 py-3 rounded-xl hover:bg-brand-50 font-semibold">Beranda</a>
+          <a href="#layanan" class="px-4 py-3 rounded-xl hover:bg-brand-50 font-semibold">Layanan</a>
+          <a href="#keunggulan" class="px-4 py-3 rounded-xl hover:bg-brand-50 font-semibold">Keunggulan</a>
+          <a href="#cara-order" class="px-4 py-3 rounded-xl hover:bg-brand-50 font-semibold">Cara Order</a>
+          <a href="#area" class="px-4 py-3 rounded-xl hover:bg-brand-50 font-semibold">Area</a>
+          <a href="#faq" class="px-4 py-3 rounded-xl hover:bg-brand-50 font-semibold">FAQ</a>
+          <a href="#kontak" class="px-4 py-3 rounded-xl hover:bg-brand-50 font-semibold">Kontak</a>
+          <a href="https://wa.me/6287864443131" target="_blank" rel="noopener" class="mx-4 mt-2 text-center bg-brand-600 text-white font-bold py-3 rounded-xl">Order Sekarang</a>
+        </nav>
+      </div>
     </div>
   </header>
 
-  <main id="konten">
-    <!-- Hero -->
-    <section class="hero" id="beranda">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">Open Order • Setiap Hari • Minggu Tetap Buka</p>
-          <h1>Jasa Kurir Lombok Cepat, Aman, Terpercaya — Buka Setiap Hari</h1>
-          <p class="lead">
-            Lombok Kurir siap jemput dan antar dokumen, paket, makanan, belanjaan, oleh-oleh,
-            dan barang lainnya seputar Mataram, Lombok Barat, Lombok Tengah, dan sekitarnya.
-            Order mudah lewat WhatsApp, kurir meluncur secepat mungkin.
-          </p>
+  <!-- ============ HERO CAROUSEL ============ -->
+  <section id="beranda" class="relative h-screen min-h-[640px] max-h-[900px] overflow-hidden">
+    <!-- Slides -->
+    <div id="heroCarousel" class="absolute inset-0">
 
-          <div class="hero-cta">
-            <a class="btn btn-wa" href="https://wa.me/6287864443131?text=Halo%20Lombok%20Kurir!%20Saya%20mau%20order%20antar%20barang." target="_blank" rel="noopener">
-              Order via WhatsApp
+      <!-- Slide 1 -->
+      <div class="hero-slide active" data-slide="0">
+        <div class="bg-image" style="background-image:url('https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=1920&q=80')"></div>
+        <div class="overlay"></div>
+        <div class="relative z-10 h-full flex items-center">
+          <div class="max-w-7xl mx-auto px-5 lg:px-8 w-full">
+            <div class="content max-w-3xl">
+              <span class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/25 text-white text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider mb-6">
+                <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                Open Order • Setiap Hari
+              </span>
+              <h1 class="text-white text-4xl md:text-5xl lg:text-7xl font-black leading-[1.05] tracking-tight mb-6">
+                Kurir Cepat, Aman,<br/>
+                <span class="bg-gradient-to-r from-emerald-300 to-yellow-300 bg-clip-text text-transparent">Terpercaya</span> se-Lombok
+              </h1>
+              <p class="text-white/90 text-base md:text-xl leading-relaxed mb-8 max-w-2xl">
+                Layanan antar-jemput barang & dokumen seputar Lombok. Cepat dijemput, aman di jalan, sampai tepat di tujuan — termasuk akhir pekan dan hari libur.
+              </p>
+              <div class="flex flex-wrap gap-3">
+                <a href="https://wa.me/6287864443131?text=Halo%20Lombok%20Kurir!%20Saya%20mau%20order%20antar%20barang." target="_blank" rel="noopener"
+                   class="group inline-flex items-center gap-2 bg-white text-brand-700 font-bold px-7 py-4 rounded-full shadow-2xl hover:shadow-white/20 hover:-translate-y-1 transition-all">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+                  Order via WhatsApp
+                  <svg class="w-4 h-4 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#layanan" class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold px-7 py-4 rounded-full hover:bg-white/20 transition">
+                  Lihat Layanan
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="hero-slide" data-slide="1">
+        <div class="bg-image" style="background-image:url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=80')"></div>
+        <div class="overlay" style="background: linear-gradient(120deg, rgba(234, 88, 12, 0.92) 0%, rgba(249, 115, 22, 0.75) 50%, rgba(0, 0, 0, 0.45) 100%);"></div>
+        <div class="relative z-10 h-full flex items-center">
+          <div class="max-w-7xl mx-auto px-5 lg:px-8 w-full">
+            <div class="content max-w-3xl">
+              <span class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/25 text-white text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider mb-6">
+                <span class="text-lg">🔥</span>
+                Minggu Tetap ON
+              </span>
+              <h1 class="text-white text-4xl md:text-5xl lg:text-7xl font-black leading-[1.05] tracking-tight mb-6">
+                Walau Hari Minggu,<br/>
+                <span class="bg-gradient-to-r from-yellow-300 to-orange-200 bg-clip-text text-transparent">Kami Tetap Jalan!</span>
+              </h1>
+              <p class="text-white/90 text-base md:text-xl leading-relaxed mb-8 max-w-2xl">
+                Open order setiap hari termasuk akhir pekan dan hari libur. Karena kebutuhan pengiriman Anda tidak mengenal hari — dan kami siap kapanpun Anda butuh.
+              </p>
+              <div class="flex flex-wrap gap-3">
+                <a href="https://wa.me/6287864443131?text=Halo%20Lombok%20Kurir!%20Saya%20mau%20order%20antar%20barang." target="_blank" rel="noopener"
+                   class="inline-flex items-center gap-2 bg-white text-orange-600 font-bold px-7 py-4 rounded-full shadow-2xl hover:-translate-y-1 transition-all">
+                  Chat Sekarang
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#area" class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold px-7 py-4 rounded-full hover:bg-white/20 transition">
+                  Cek Area
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="hero-slide" data-slide="2">
+        <div class="bg-image" style="background-image:url('https://images.unsplash.com/photo-1528529264623-0e40d7b15e0e?auto=format&fit=crop&w=1920&q=80')"></div>
+        <div class="overlay" style="background: linear-gradient(120deg, rgba(6, 78, 59, 0.92) 0%, rgba(15, 118, 110, 0.75) 50%, rgba(0, 0, 0, 0.55) 100%);"></div>
+        <div class="relative z-10 h-full flex items-center">
+          <div class="max-w-7xl mx-auto px-5 lg:px-8 w-full">
+            <div class="content max-w-3xl">
+              <span class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/25 text-white text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider mb-6">
+                <span class="text-lg">📦</span>
+                Kirim Apa Saja
+              </span>
+              <h1 class="text-white text-4xl md:text-5xl lg:text-7xl font-black leading-[1.05] tracking-tight mb-6">
+                Dari Dokumen<br/>
+                Sampai <span class="bg-gradient-to-r from-emerald-300 to-cyan-300 bg-clip-text text-transparent">Oleh-Oleh</span>, Kami Antar!
+              </h1>
+              <p class="text-white/90 text-base md:text-xl leading-relaxed mb-8 max-w-2xl">
+                Apapun kebutuhan pengirimanmu — dokumen, paket, makanan, belanjaan, atau oleh-oleh khas Lombok — kurir lokal kami siap jemput dan antar dengan amanah.
+              </p>
+              <div class="flex flex-wrap gap-3">
+                <a href="#cara-order" class="inline-flex items-center gap-2 bg-white text-brand-700 font-bold px-7 py-4 rounded-full shadow-2xl hover:-translate-y-1 transition-all">
+                  Cara Order
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#layanan" class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold px-7 py-4 rounded-full hover:bg-white/20 transition">
+                  Lihat Layanan
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <button id="prevBtn" class="arrow-btn absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full grid place-items-center text-white" aria-label="Sebelumnya">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <button id="nextBtn" class="arrow-btn absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full grid place-items-center text-white" aria-label="Selanjutnya">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+    </button>
+
+    <!-- Dots Indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
+      <button class="dot active w-3 h-3 rounded-full bg-white/50" data-goto="0"></button>
+      <button class="dot w-3 h-3 rounded-full bg-white/50" data-goto="1"></button>
+      <button class="dot w-3 h-3 rounded-full bg-white/50" data-goto="2"></button>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="absolute bottom-8 right-8 z-20 hidden md:flex flex-col items-center gap-2 text-white/70 text-xs font-bold tracking-widest">
+      <span>SCROLL</span>
+      <div class="w-px h-10 bg-gradient-to-b from-white/70 to-transparent animate-float"></div>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE TRUST BADGES ============ -->
+  <section class="bg-gradient-to-r from-brand-700 via-brand-600 to-brand-700 py-5 overflow-hidden border-y-4 border-brand-900/10">
+    <div class="marquee-track text-white font-bold text-sm md:text-base uppercase tracking-wider whitespace-nowrap">
+      <div class="flex items-center gap-10 pr-10">
+        <span>★ Cepat Sampai</span>
+        <span>★ Aman Terpercaya</span>
+        <span>★ Harga Bersahabat</span>
+        <span>★ Tracking Jelas</span>
+        <span>★ Minggu Tetap ON</span>
+        <span>★ Kirim Apa Saja</span>
+        <span>★ Jemput Barang</span>
+        <span>★ Kurir Lokal Hafal Jalan</span>
+      </div>
+      <div class="flex items-center gap-10 pr-10" aria-hidden="true">
+        <span>★ Cepat Sampai</span>
+        <span>★ Aman Terpercaya</span>
+        <span>★ Harga Bersahabat</span>
+        <span>★ Tracking Jelas</span>
+        <span>★ Minggu Tetap ON</span>
+        <span>★ Kirim Apa Saja</span>
+        <span>★ Jemput Barang</span>
+        <span>★ Kurir Lokal Hafal Jalan</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS SECTION ============ -->
+  <section class="py-20 bg-gradient-to-br from-slate-50 to-white">
+    <div class="max-w-7xl mx-auto px-5 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div class="reveal bg-white rounded-3xl p-6 lg:p-8 shadow-lg border border-slate-100 hover:shadow-2xl transition">
+          <div class="text-5xl lg:text-6xl font-black gradient-text mb-2" data-count="1200">0</div>
+          <div class="text-xs lg:text-sm font-bold text-slate-500 uppercase tracking-wider">Pengiriman Sukses</div>
+        </div>
+        <div class="reveal bg-white rounded-3xl p-6 lg:p-8 shadow-lg border border-slate-100 hover:shadow-2xl transition" style="transition-delay:.1s">
+          <div class="text-5xl lg:text-6xl font-black gradient-text mb-2">7<span class="text-brand-500">/7</span></div>
+          <div class="text-xs lg:text-sm font-bold text-slate-500 uppercase tracking-wider">Hari Operasional</div>
+        </div>
+        <div class="reveal bg-white rounded-3xl p-6 lg:p-8 shadow-lg border border-slate-100 hover:shadow-2xl transition" style="transition-delay:.2s">
+          <div class="text-5xl lg:text-6xl font-black gradient-text mb-2" data-count="25">0</div>
+          <div class="text-xs lg:text-sm font-bold text-slate-500 uppercase tracking-wider">Kecamatan Terjangkau</div>
+        </div>
+        <div class="reveal bg-white rounded-3xl p-6 lg:p-8 shadow-lg border border-slate-100 hover:shadow-2xl transition" style="transition-delay:.3s">
+          <div class="text-5xl lg:text-6xl font-black gradient-text mb-2" data-count="98">0</div>
+          <div class="text-xs lg:text-sm font-bold text-slate-500 uppercase tracking-wider">% Customer Puas</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LAYANAN (BENTO GRID) ============ -->
+  <section id="layanan" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-5 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+        <span class="inline-block text-brand-600 text-xs font-black uppercase tracking-[0.2em] mb-3">Layanan Kami</span>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-4">Kirim Apa Saja,<br/><span class="gradient-text">Kami Antar ke Tujuan</span></h2>
+        <p class="text-slate-600 text-lg">Apapun kebutuhan pengirimanmu, Lombok Kurir siap jemput dan antar dengan amanah setiap hari.</p>
+      </div>
+
+      <!-- Bento Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5">
+
+        <!-- Big card - Dokumen & Paket -->
+        <div class="bento-card reveal lg:col-span-3 lg:row-span-2 rounded-3xl bg-gradient-to-br from-brand-600 to-brand-800 p-8 lg:p-10 text-white relative overflow-hidden group cursor-pointer">
+          <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-white/5 rounded-full blur-3xl group-hover:scale-125 transition duration-700"></div>
+          <div class="relative z-10 h-full flex flex-col justify-between">
+            <div class="icon-wrap w-16 h-16 rounded-2xl bg-white/15 backdrop-blur grid place-items-center text-3xl mb-6">📄</div>
+            <div>
+              <h3 class="text-2xl lg:text-3xl font-black mb-3">Dokumen & Paket</h3>
+              <p class="text-white/80 leading-relaxed">Surat penting, berkas kantor, hingga paket online shop — dijemput dan diantar cepat di hari yang sama dengan amanah penuh.</p>
+              <div class="mt-6 inline-flex items-center gap-2 text-sm font-bold bg-white/20 backdrop-blur px-4 py-2 rounded-full">
+                Same Day Delivery
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Makanan -->
+        <div class="bento-card reveal lg:col-span-3 rounded-3xl bg-gradient-to-br from-orange-100 to-yellow-50 p-7 border border-orange-100 cursor-pointer" style="transition-delay:.1s">
+          <div class="icon-wrap w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-400 to-orange-600 grid place-items-center text-2xl mb-4 shadow-lg shadow-orange-300">🍜</div>
+          <h3 class="text-xl font-black mb-2">Makanan & Minuman</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Titip beli atau antar pesanan kuliner favoritmu — tetap hangat, rapi, dan aman sampai tujuan.</p>
+        </div>
+
+        <!-- Belanjaan -->
+        <div class="bento-card reveal lg:col-span-3 rounded-3xl bg-gradient-to-br from-emerald-50 to-teal-50 p-7 border border-emerald-100 cursor-pointer" style="transition-delay:.2s">
+          <div class="icon-wrap w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-600 grid place-items-center text-2xl mb-4 shadow-lg shadow-emerald-300">🛒</div>
+          <h3 class="text-xl font-black mb-2">Belanjaan</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Belanja pasar, supermarket, atau kebutuhan rumah tangga? Serahkan saja pada kurir kami.</p>
+        </div>
+
+        <!-- Oleh-oleh -->
+        <div class="bento-card reveal lg:col-span-2 rounded-3xl bg-gradient-to-br from-pink-50 to-rose-50 p-7 border border-pink-100 cursor-pointer" style="transition-delay:.3s">
+          <div class="icon-wrap w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-400 to-rose-600 grid place-items-center text-2xl mb-4 shadow-lg shadow-pink-300">🎁</div>
+          <h3 class="text-xl font-black mb-2">Oleh-Oleh</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Mutiara, kaos, kuliner khas Lombok — aman sampai penerima.</p>
+        </div>
+
+        <!-- Barang Lainnya -->
+        <div class="bento-card reveal lg:col-span-2 rounded-3xl bg-gradient-to-br from-blue-50 to-indigo-50 p-7 border border-blue-100 cursor-pointer" style="transition-delay:.4s">
+          <div class="icon-wrap w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-400 to-indigo-600 grid place-items-center text-2xl mb-4 shadow-lg shadow-blue-300">📦</div>
+          <h3 class="text-xl font-black mb-2">Barang Lainnya</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Elektronik, sparepart, barang usaha — kami siap antar ke tujuan.</p>
+        </div>
+
+        <!-- Antar Khusus - CTA -->
+        <div class="bento-card reveal lg:col-span-2 rounded-3xl bg-gradient-to-br from-slate-900 to-slate-700 p-7 text-white relative overflow-hidden cursor-pointer group" style="transition-delay:.5s">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full blur-3xl opacity-30 group-hover:opacity-60 transition"></div>
+          <div class="relative z-10">
+            <div class="icon-wrap w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 grid place-items-center text-2xl mb-4 shadow-lg">⭐</div>
+            <h3 class="text-xl font-black mb-2">Antar Khusus?</h3>
+            <p class="text-white/70 text-sm mb-4">Jadwal & jenis kurir bisa disesuaikan.</p>
+            <a href="https://wa.me/6287864443131?text=Halo%20Lombok%20Kurir!%20Saya%20butuh%20layanan%20antar%20khusus." target="_blank" rel="noopener"
+               class="inline-flex items-center gap-1 text-sm font-bold text-amber-300 group-hover:text-amber-200">
+              Request Sekarang
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
             </a>
-            <a class="btn btn-outline" href="#layanan">Lihat Layanan</a>
-            <a class="btn btn-outline" href="#cara-order">Cara Order</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KEUNGGULAN ============ -->
+  <section id="keunggulan" class="py-24 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-96 h-96 bg-brand-200 rounded-full blur-3xl opacity-30 -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-orange-200 rounded-full blur-3xl opacity-30 translate-x-1/2 translate-y-1/2"></div>
+
+    <div class="relative max-w-7xl mx-auto px-5 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+        <span class="inline-block text-brand-600 text-xs font-black uppercase tracking-[0.2em] mb-3">Kenapa Kami</span>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-4">Kurir Lokal yang Bisa<br/><span class="gradient-text">Diandalkan Setiap Hari</span></h2>
+        <p class="text-slate-600 text-lg">Bukan sekadar antar barang — kami jaga kepercayaan Anda di setiap kilometer perjalanan.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="reveal bento-card bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl">
+          <div class="icon-wrap w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-400 to-red-500 grid place-items-center text-3xl mb-5 shadow-lg shadow-orange-200">🔥</div>
+          <h3 class="text-xl font-black mb-3">Minggu Tetap Kirim</h3>
+          <p class="text-slate-600 leading-relaxed">Open order setiap hari termasuk Minggu & hari libur. Chat WA masuk, kurir langsung meluncur!</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="reveal bento-card bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl" style="transition-delay:.1s">
+          <div class="icon-wrap w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-400 to-orange-500 grid place-items-center text-3xl mb-5 shadow-lg shadow-yellow-200">⚡</div>
+          <h3 class="text-xl font-black mb-3">Cepat Sampai Tujuan</h3>
+          <p class="text-slate-600 leading-relaxed">Kurir standby setiap hari dan langsung meluncur begitu order Anda masuk antrean.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="reveal bento-card bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl" style="transition-delay:.2s">
+          <div class="icon-wrap w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-600 grid place-items-center text-3xl mb-5 shadow-lg shadow-emerald-200">🛡️</div>
+          <h3 class="text-xl font-black mb-3">Aman & Terjaga</h3>
+          <p class="text-slate-600 leading-relaxed">Barang diamankan di box pengiriman dan dikawal penuh sampai tiba di tujuan.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="reveal bento-card bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl" style="transition-delay:.3s">
+          <div class="icon-wrap w-16 h-16 rounded-2xl bg-gradient-to-br from-green-400 to-emerald-600 grid place-items-center text-3xl mb-5 shadow-lg shadow-green-200">💸</div>
+          <h3 class="text-xl font-black mb-3">Harga Bersahabat</h3>
+          <p class="text-slate-600 leading-relaxed">Tarif transparan dan ramah di kantong, disesuaikan dengan jarak pengiriman.</p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="reveal bento-card bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl" style="transition-delay:.4s">
+          <div class="icon-wrap w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-400 to-indigo-600 grid place-items-center text-3xl mb-5 shadow-lg shadow-blue-200">📍</div>
+          <h3 class="text-xl font-black mb-3">Tracking Jelas</h3>
+          <p class="text-slate-600 leading-relaxed">Update posisi kurir via WhatsApp, dari penjemputan sampai barang tiba di alamat tujuan.</p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="reveal bento-card bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl" style="transition-delay:.5s">
+          <div class="icon-wrap w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-400 to-pink-600 grid place-items-center text-3xl mb-5 shadow-lg shadow-purple-200">🗺️</div>
+          <h3 class="text-xl font-black mb-3">Hafal Jalur Lombok</h3>
+          <p class="text-slate-600 leading-relaxed">Kurir lokal yang hafal jalan dari pusat Mataram hingga pelosok Lombok Barat & Tengah.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CARA ORDER (TIMELINE) ============ -->
+  <section id="cara-order" class="py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-brand-900 text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-20" style="background-image:radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+
+    <div class="relative max-w-7xl mx-auto px-5 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-20 reveal">
+        <span class="inline-block text-emerald-300 text-xs font-black uppercase tracking-[0.2em] mb-3">Cara Order</span>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-4">Order Gampang,<br/><span class="bg-gradient-to-r from-emerald-300 to-cyan-300 bg-clip-text text-transparent">4 Langkah Selesai</span></h2>
+        <p class="text-slate-300 text-lg">Cukup dari HP, kurir kami yang urus sisanya.</p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="relative">
+        <div class="timeline-line hidden lg:block"></div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 relative z-10">
+          <div class="reveal text-center">
+            <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-emerald-400 to-teal-600 grid place-items-center text-white text-3xl font-black shadow-2xl shadow-emerald-500/50 mb-5 ring-4 ring-white/10">1</div>
+            <h3 class="text-xl font-black mb-2">Chat WhatsApp</h3>
+            <p class="text-slate-300 text-sm">Kirim pesan ke nomor kami, sebutkan barang & alamat jemput.</p>
           </div>
 
-          <ul class="badges">
-            <li>Minggu Tetap On</li>
-            <li>Jemput Barang</li>
-            <li>Tracking via WA</li>
-            <li>Harga Bersahabat</li>
-          </ul>
-        </div>
-
-        <aside class="hero-panel" aria-label="Ringkasan order cepat">
-          <div class="panel-title">Butuh kirim hari ini?</div>
-          <ul>
-            <li>Kirim info barang & alamat via WhatsApp</li>
-            <li>Cek area dan tarif dengan cepat</li>
-            <li>Kurir jemput barang, update posisi via WA</li>
-            <li>Barang diantar sampai tujuan dengan aman</li>
-          </ul>
-          <div class="panel-cta">
-            <a class="btn btn-primary" href="https://wa.me/6287864443131?text=Halo%20Lombok%20Kurir!%20Saya%20mau%20order%20antar%20barang." target="_blank" rel="noopener">
-              Chat WhatsApp Sekarang
-            </a>
-            <a class="btn btn-outline" href="tel:+6287864443131">Telepon: 0878-6444-3131</a>
+          <div class="reveal text-center" style="transition-delay:.15s">
+            <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 grid place-items-center text-white text-3xl font-black shadow-2xl shadow-cyan-500/50 mb-5 ring-4 ring-white/10">2</div>
+            <h3 class="text-xl font-black mb-2">Konfirmasi Order</h3>
+            <p class="text-slate-300 text-sm">Kami cek area & tarif, Anda konfirmasi, order masuk antrean.</p>
           </div>
-        </aside>
-      </div>
-    </section>
 
-    <!-- Trustbar -->
-    <section class="trustbar" aria-label="Ringkasan keunggulan">
-      <div class="container trustbar-grid">
-        <div class="trust-item">🗓️ Buka 7 Hari</div>
-        <div class="trust-item">🛵 Jemput Cepat</div>
-        <div class="trust-item">📦 Barang Aman</div>
-        <div class="trust-item">📍 Update Posisi via WA</div>
-      </div>
-    </section>
+          <div class="reveal text-center" style="transition-delay:.3s">
+            <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-orange-400 to-red-500 grid place-items-center text-white text-3xl font-black shadow-2xl shadow-orange-500/50 mb-5 ring-4 ring-white/10">3</div>
+            <h3 class="text-xl font-black mb-2">Kurir Menjemput</h3>
+            <p class="text-slate-300 text-sm">Kurir meluncur ke lokasi jemput, barang diamankan di box motor.</p>
+          </div>
 
-    <!-- Layanan -->
-    <section class="section" id="layanan">
-      <div class="container">
-        <div class="section-head">
-          <p class="kicker">Layanan Kami</p>
-          <h2>Kirim Apa Saja, Kami Antar ke Tujuan</h2>
-          <p class="lead">
-            Dari kebutuhan pribadi sampai operasional bisnis, Lombok Kurir siap membantu
-            penjemputan dan pengiriman barang Anda setiap hari.
-          </p>
-        </div>
-
-        <div class="grid grid-3">
-          <article class="card">
-            <div class="icon" aria-hidden="true">📄</div>
-            <h3>Dokumen & Paket</h3>
-            <p>Surat penting, berkas kantor, hingga paket online shop — dijemput dan diantar cepat di hari yang sama.</p>
-          </article>
-
-          <article class="card">
-            <div class="icon" aria-hidden="true">🍜</div>
-            <h3>Makanan & Minuman</h3>
-            <p>Titip beli atau antar pesanan kuliner favorit. Dikemas rapi, dijaga selama perjalanan, sampai tujuan dengan aman.</p>
-          </article>
-
-          <article class="card">
-            <div class="icon" aria-hidden="true">🛒</div>
-            <h3>Belanjaan</h3>
-            <p>Belanja pasar, supermarket, atau kebutuhan rumah tangga? Serahkan saja pada kurir kami.</p>
-          </article>
-
-          <article class="card">
-            <div class="icon" aria-hidden="true">🎁</div>
-            <h3>Oleh-Oleh</h3>
-            <p>Mutiara, kaos, kuliner khas Lombok, dan oleh-oleh lainnya siap diantar aman sampai ke tangan penerima.</p>
-          </article>
-
-          <article class="card">
-            <div class="icon" aria-hidden="true">📦</div>
-            <h3>Barang Lainnya</h3>
-            <p>Elektronik ringan, sparepart, barang usaha, dan kebutuhan lain. Kirim apa saja, kami siap bantu.</p>
-          </article>
-
-          <article class="card highlight-card">
-            <div class="icon" aria-hidden="true">⭐</div>
-            <h3>Butuh Antar Khusus?</h3>
-            <p>Chat kami, sebutkan kebutuhanmu. Jadwal & jenis layanan bisa disesuaikan dengan permintaan.</p>
-            <div style="margin-top:16px;">
-              <a class="btn btn-accent" href="https://wa.me/6287864443131?text=Halo%20Lombok%20Kurir!%20Saya%20butuh%20layanan%20antar%20khusus." target="_blank" rel="noopener">
-                Request Antar Khusus
-              </a>
-            </div>
-          </article>
+          <div class="reveal text-center" style="transition-delay:.45s">
+            <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-pink-400 to-rose-600 grid place-items-center text-white text-3xl font-black shadow-2xl shadow-pink-500/50 mb-5 ring-4 ring-white/10">4</div>
+            <h3 class="text-xl font-black mb-2">Sampai Tujuan</h3>
+            <p class="text-slate-300 text-sm">Barang tiba dengan selamat, pembayaran selesai, semua senang!</p>
+          </div>
         </div>
       </div>
-    </section>
 
-    <!-- Keunggulan -->
-    <section class="section soft" id="keunggulan">
-      <div class="container">
-        <div class="section-head">
-          <p class="kicker">Kenapa Memilih Kami?</p>
-          <h2>Kurir Lokal yang Bisa Diandalkan Setiap Hari</h2>
-          <p class="lead">
-            Bukan sekadar antar barang — kami menjaga kepercayaan Anda di setiap perjalanan.
-          </p>
+      <div class="text-center mt-16 reveal">
+        <a href="https://wa.me/6287864443131?text=Halo%20Lombok%20Kurir!%20Saya%20mau%20order%20antar%20barang." target="_blank" rel="noopener"
+           class="inline-flex items-center gap-3 bg-white text-slate-900 font-black px-8 py-4 rounded-full shadow-2xl hover:-translate-y-1 transition">
+          <svg class="w-5 h-5 text-brand-600" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+          Mulai Order Sekarang
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AREA LAYANAN ============ -->
+  <section id="area" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-5 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+        <span class="inline-block text-brand-600 text-xs font-black uppercase tracking-[0.2em] mb-3">Area Layanan</span>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-4">Melayani Pengiriman<br/><span class="gradient-text">Seputar Lombok</span></h2>
+        <p class="text-slate-600 text-lg">Jangkauan kami mencakup kota hingga kecamatan sekitar. Area lain? Chat dulu, kami usahakan!</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="reveal bento-card relative rounded-3xl overflow-hidden h-80 group cursor-pointer">
+          <div class="absolute inset-0 bg-cover bg-center transition duration-700 group-hover:scale-110" style="background-image:url('https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?auto=format&fit=crop&w=800&q=80')"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent"></div>
+          <div class="relative h-full p-6 flex flex-col justify-end text-white">
+            <div class="inline-block text-xs font-black uppercase tracking-wider text-emerald-300 mb-2">📍 Zona 1</div>
+            <h3 class="text-2xl font-black mb-2">Kota Mataram</h3>
+            <p class="text-white/80 text-sm">Ampenan • Mataram • Cakranegara • Sandubaya</p>
+          </div>
         </div>
 
-        <div class="grid grid-3">
-          <article class="card">
-            <div class="icon" aria-hidden="true">🔥</div>
-            <h3>Hari Minggu Tetap Kirim</h3>
-            <p>Open order setiap hari, termasuk Minggu dan hari libur tertentu selama kurir tersedia.</p>
-          </article>
+        <div class="reveal bento-card relative rounded-3xl overflow-hidden h-80 group cursor-pointer" style="transition-delay:.1s">
+          <div class="absolute inset-0 bg-cover bg-center transition duration-700 group-hover:scale-110" style="background-image:url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80')"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent"></div>
+          <div class="relative h-full p-6 flex flex-col justify-end text-white">
+            <div class="inline-block text-xs font-black uppercase tracking-wider text-emerald-300 mb-2">📍 Zona 2</div>
+            <h3 class="text-2xl font-black mb-2">Lombok Barat</h3>
+            <p class="text-white/80 text-sm">Senggigi • Narmada • Gerung • sekitarnya</p>
+          </div>
+        </div>
 
-          <article class="card">
-            <div class="icon" aria-hidden="true">⚡</div>
-            <h3>Cepat Sampai Tujuan</h3>
-            <p>Kurir standby dan langsung meluncur setelah order dikonfirmasi.</p>
-          </article>
+        <div class="reveal bento-card relative rounded-3xl overflow-hidden h-80 group cursor-pointer" style="transition-delay:.2s">
+          <div class="absolute inset-0 bg-cover bg-center transition duration-700 group-hover:scale-110" style="background-image:url('https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&w=800&q=80')"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent"></div>
+          <div class="relative h-full p-6 flex flex-col justify-end text-white">
+            <div class="inline-block text-xs font-black uppercase tracking-wider text-emerald-300 mb-2">📍 Zona 3</div>
+            <h3 class="text-2xl font-black mb-2">Lombok Tengah</h3>
+            <p class="text-white/80 text-sm">Praya • Kuta • Pringgarata • sekitarnya</p>
+          </div>
+        </div>
 
-          <article class="card">
-            <div class="icon" aria-hidden="true">🛡️</div>
-            <h3>Aman & Barang Terjaga</h3>
-            <p>Barang diamankan selama perjalanan dan dikawal sampai tiba di tujuan.</p>
-          </article>
-
-          <article class="card">
-            <div class="icon" aria-hidden="true">💸</div>
-            <h3>Harga Bersahabat</h3>
-            <p>Tarif transparan dan disesuaikan dengan jarak pengiriman.</p>
-          </article>
-
-          <article class="card">
-            <div class="icon" aria-hidden="true">💬</div>
-            <h3>Tracking Jelas via WhatsApp</h3>
-            <p>Update posisi kurir dari penjemputan sampai barang tiba di alamat tujuan.</p>
-          </article>
-
-          <article class="card">
-            <div class="icon" aria-hidden="true">📍</div>
-            <h3>Hafal Area Lombok</h3>
-            <p>Kurir lokal yang paham jalur Mataram, Lombok Barat, Lombok Tengah, dan sekitarnya.</p>
-          </article>
+        <div class="reveal bento-card relative rounded-3xl overflow-hidden h-80 bg-gradient-to-br from-brand-600 to-brand-800 p-6 flex flex-col justify-between text-white" style="transition-delay:.3s">
+          <div class="text-6xl">🗺️</div>
+          <div>
+            <div class="inline-block text-xs font-black uppercase tracking-wider text-emerald-200 mb-2">Area Lainnya</div>
+            <h3 class="text-2xl font-black mb-2">Konfirmasi via WA</h3>
+            <p class="text-white/80 text-sm mb-4">Berada di luar area list? Tenang — kirim chat dulu, kurir kami siap negosiasi jarak!</p>
+            <a href="https://wa.me/6287864443131?text=Halo%20Lombok%20Kurir!%20Mohon%20info%20area%20pengiriman." target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-sm font-black bg-white text-brand-700 px-4 py-2 rounded-full">
+              Tanya Area
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Cara Order -->
-    <section class="section" id="cara-order">
-      <div class="container">
-        <div class="section-head">
-          <p class="kicker">Cara Order</p>
-          <h2>Order Gampang, 4 Langkah Selesai</h2>
-          <p class="lead">Cukup dari HP, kurir kami yang urus sisanya.</p>
-        </div>
-
-        <div class="steps">
-          <article class="card step">
-            <div class="num">1</div>
-            <h3>Chat WhatsApp</h3>
-            <p>Kirim pesan ke nomor kami, sebutkan jenis barang dan alamat jemput.</p>
-          </article>
-
-          <article class="card step">
-            <div class="num">2</div>
-            <h3>Konfirmasi Order</h3>
-            <p>Kami cek area dan tarif, Anda konfirmasi, order masuk antrean.</p>
-          </article>
-
-          <article class="card step">
-            <div class="num">3</div>
-            <h3>Kurir Menjemput</h3>
-            <p>Kurir meluncur ke lokasi jemput dan mengamankan barang.</p>
-          </article>
-
-          <article class="card step">
-            <div class="num">4</div>
-            <h3>Sampai Tujuan</h3>
-            <p>Barang tiba dengan selamat, pembayaran selesai, semua senang.</p>
-          </article>
-        </div>
-
-        <div class="order-box" id="order-cepat">
-          <h3>Form Order Cepat</h3>
-          <p class="lead">Isi data di bawah, lalu tombol akan otomatis membuka WhatsApp dengan format order yang rapi.</p>
-
-          <form id="orderForm">
-            <div class="form-grid">
-              <div class="form-field">
-                <label for="nama">Nama</label>
-                <input type="text" id="nama" name="nama" placeholder="Contoh: Budi" required />
-              </div>
-
-              <div class="form-field">
-                <label for="barang">Jenis Barang</label>
-                <input type="text" id="barang" name="barang" placeholder="Contoh: dokumen / makanan / paket" required />
-              </div>
-
-              <div class="form-field">
-                <label for="jemput">Alamat Jemput</label>
-                <input type="text" id="jemput" name="jemput" placeholder="Contoh: Jalan AA Gede Ngurah, Mataram" required />
-              </div>
-
-              <div class="form-field">
-                <label for="tujuan">Alamat Tujuan</label>
-                <input type="text" id="tujuan" name="tujuan" placeholder="Contoh: Praya, Lombok Tengah" required />
-              </div>
-
-              <div class="form-field full">
-                <label for="catatan">Catatan Tambahan</label>
-                <textarea id="catatan" name="catatan" rows="3" placeholder="Contoh: kirim sebelum jam 12 siang, barang mudah pecah, dll."></textarea>
-              </div>
-
-              <div class="form-field full">
-                <label>Pilih Nomor WhatsApp Tujuan</label>
-                <div class="radio-list">
-                  <label class="radio-item">
-                    <input type="radio" name="nomor" value="6287864443131" checked />
-                    <span>WhatsApp Utama — 0878-6444-3131</span>
-                  </label>
-
-                  <label class="radio-item">
-                    <input type="radio" name="nomor" value="6287864443636" />
-                    <span>WhatsApp Alternatif — 0878-6444-3636</span>
-                  </label>
-                </div>
-              </div>
-
-              <div class="full">
-                <button type="submit" class="btn btn-wa" style="width:100%;">Kirim Order via WhatsApp</button>
-                <p class="form-note">Setelah klik tombol, WhatsApp akan terbuka dengan pesan otomatis. Anda tinggal kirim.</p>
-              </div>
-            </div>
-          </form>
-        </div>
+  <!-- ============ TESTIMONI ============ -->
+  <section id="testimoni" class="py-24 bg-gradient-to-br from-slate-50 via-brand-50 to-emerald-50 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-5 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+        <span class="inline-block text-brand-600 text-xs font-black uppercase tracking-[0.2em] mb-3">Testimoni</span>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-4">Kata Mereka yang Sudah<br/><span class="gradient-text">Pakai Jasa Kami</span></h2>
       </div>
-    </section>
 
-    <!-- Area -->
-    <section class="section soft" id="area">
-      <div class="container">
-        <div class="section-head">
-          <p class="kicker">Area Layanan</p>
-          <h2>Melayani Pengiriman Seputar Lombok</h2>
-          <p class="lead">
-            Jangkauan kami mencakup kota hingga kecamatan sekitar. Berada di luar area list?
-            Chat dulu, kami usahakan.
-          </p>
-        </div>
-
-        <div class="grid area-grid">
-          <article class="card area-card">
-            <h3>Kota Mataram</h3>
-            <ul>
-              <li>Ampenan</li>
-              <li>Mataram</li>
-              <li>Cakranegara</li>
-              <li>Sandubaya</li>
-            </ul>
-          </article>
-
-          <article class="card area-card">
-            <h3>Lombok Barat</h3>
-            <ul>
-              <li>Senggigi</li>
-              <li>Narmada</li>
-              <li>Gerung</li>
-              <li>Sekitarnya</li>
-            </ul>
-          </article>
-
-          <article class="card area-card">
-            <h3>Lombok Tengah</h3>
-            <ul>
-              <li>Praya</li>
-              <li>Kuta</li>
-              <li>Pringgarata</li>
-              <li>Sekitarnya</li>
-            </ul>
-          </article>
-
-          <article class="card area-card highlight-card">
-            <h3>Area Lainnya</h3>
-            <p>Untuk area di luar daftar, silakan konfirmasi via WhatsApp. Kami bantu cek kemungkinan pengiriman.</p>
-            <div style="margin-top:16px;">
-              <a class="btn btn-primary" href="https://wa.me/6287864443131?text=Halo%20Lombok%20Kurir!%20Mohon%20info%20area%20pengiriman." target="_blank" rel="noopener">
-                Cek Area Layanan
-              </a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section" id="faq">
-      <div class="container">
-        <div class="section-head">
-          <p class="kicker">FAQ</p>
-          <h2>Pertanyaan yang Sering Ditanyakan</h2>
-          <p class="lead">Butuh jawaban cepat? Berikut informasi penting sebelum order.</p>
-        </div>
-
-        <div class="faq-list">
-          <details>
-            <summary>Apakah Lombok Kurir buka hari Minggu?</summary>
-            <p>Ya. Lombok Kurir tetap membuka order pada hari Minggu dan hari libur tertentu selama kurir tersedia. Untuk memastikan jadwal, silakan chat terlebih dahulu.</p>
-          </details>
-
-          <details>
-            <summary>Bagaimana cara order?</summary>
-            <p>Anda bisa chat WhatsApp langsung atau mengisi form order di halaman ini. Sebutkan jenis barang, alamat jemput, alamat tujuan, dan waktu pengambilan.</p>
-          </details>
-
-          <details>
-            <summary>Apakah bisa jemput barang?</summary>
-            <p>Bisa. Setelah order dikonfirmasi, kurir akan datang ke alamat penjemputan untuk mengambil barang dan mengantarnya ke alamat tujuan.</p>
-          </details>
-
-          <details>
-            <summary>Berapa ongkirnya?</summary>
-            <p>Tarif disesuaikan dengan jarak, jenis barang, dan waktu pengambilan. Chat kami untuk cek ongkir dengan cepat.</p>
-          </details>
-
-          <details>
-            <summary>Area mana saja yang dilayani?</summary>
-            <p>Kota Mataram, Lombok Barat, Lombok Tengah, dan area sekitar. Untuk area lain, silakan konfirmasi terlebih dahulu.</p>
-          </details>
-
-          <details>
-            <summary>Apakah bisa tracking posisi barang?</summary>
-            <p>Bisa. Anda dapat meminta update posisi kurir melalui WhatsApp sejak penjemputan sampai barang tiba di tujuan.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimoni -->
-    <section class="section soft" id="testimoni">
-      <div class="container">
-        <div class="section-head">
-          <p class="kicker">Testimoni</p>
-          <h2>Kata Mereka yang Sudah Pakai Jasa Kami</h2>
-          <p class="lead">Kepercayaan pelanggan adalah prioritas utama kami.</p>
-        </div>
-
-        <div class="grid grid-3">
-          <article class="card testi-card">
-            <div>
-              <div class="stars" aria-label="Rating 5 dari 5">★★★★★</div>
-              <p>“Bantu banget buat online shop saya yang orderannya nggak kenal hari libur. Kurirnya ramah dan responsif.”</p>
-            </div>
-
-            <div class="testi-person">
-              <div class="avatar" aria-hidden="true">SR</div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="reveal bento-card bg-white rounded-3xl p-8 shadow-sm border border-slate-100 relative">
+          <div class="absolute -top-4 -left-2 text-7xl text-brand-200 font-black leading-none">"</div>
+          <div class="relative">
+            <div class="flex gap-1 text-amber-400 mb-4 text-lg">★★★★★</div>
+            <p class="text-slate-700 leading-relaxed mb-6">"Minggu tetap kirim! <strong>Selamet banget buat online shop saya</strong> yang orderannya nggak kenal hari libur. Kurirnya ramah pula."</p>
+            <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-400 to-rose-600 grid place-items-center text-white font-black">SR</div>
               <div>
-                <p class="person-name">Sinta R.</p>
-                <p class="person-role">Owner Online Shop • Mataram</p>
+                <div class="font-black">Sinta R.</div>
+                <div class="text-sm text-slate-500">Owner Online Shop • Mataram</div>
               </div>
             </div>
-          </article>
+          </div>
+        </div>
 
-          <article class="card testi-card">
-            <div>
-              <div class="stars" aria-label="Rating 5 dari 5">★★★★★</div>
-              <p>“Barang dijemput cepat, dikabari terus posisinya lewat WA, sampainya rapi. Recommended banget!”</p>
-            </div>
-
-            <div class="testi-person">
-              <div class="avatar" aria-hidden="true">BH</div>
+        <div class="reveal bento-card bg-white rounded-3xl p-8 shadow-sm border border-slate-100 relative" style="transition-delay:.1s">
+          <div class="absolute -top-4 -left-2 text-7xl text-brand-200 font-black leading-none">"</div>
+          <div class="relative">
+            <div class="flex gap-1 text-amber-400 mb-4 text-lg">★★★★★</div>
+            <p class="text-slate-700 leading-relaxed mb-6">"Barang dijemput cepat, <strong>dikabari terus posisinya lewat WA</strong>, sampainya rapi. Recommended banget!"</p>
+            <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-indigo-600 grid place-items-center text-white font-black">BH</div>
               <div>
-                <p class="person-name">Budi H.</p>
-                <p class="person-role">Pelaku UMKM • Senggigi</p>
+                <div class="font-black">Budi H.</div>
+                <div class="text-sm text-slate-500">Pelaku UMKM • Senggigi</div>
               </div>
             </div>
-          </article>
+          </div>
+        </div>
 
-          <article class="card testi-card">
-            <div>
-              <div class="stars" aria-label="Rating 5 dari 5">★★★★★</div>
-              <p>“Titip beli oleh-oleh buat keluarga, diantar sampai rumah dengan aman. Harga juga bersahabat di kantong.”</p>
-            </div>
-
-            <div class="testi-person">
-              <div class="avatar" aria-hidden="true">AP</div>
+        <div class="reveal bento-card bg-white rounded-3xl p-8 shadow-sm border border-slate-100 relative" style="transition-delay:.2s">
+          <div class="absolute -top-4 -left-2 text-7xl text-brand-200 font-black leading-none">"</div>
+          <div class="relative">
+            <div class="flex gap-1 text-amber-400 mb-4 text-lg">★★★★★</div>
+            <p class="text-slate-700 leading-relaxed mb-6">"Titip beli oleh-oleh buat keluarga, diantar sampai rumah dengan aman. <strong>Harga juga bersahabat di kantong.</strong>"</p>
+            <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-400 to-teal-600 grid place-items-center text-white font-black">AP</div>
               <div>
-                <p class="person-name">Andi P.</p>
-                <p class="person-role">Warga Praya • Lombok Tengah</p>
+                <div class="font-black">Andi P.</div>
+                <div class="text-sm text-slate-500">Warga Praya • Lombok Tengah</div>
               </div>
             </div>
-          </article>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Kontak -->
-    <section class="section contact-section" id="kontak">
-      <div class="container">
-        <div class="section-head">
-          <p class="kicker" style="color:#a7f3d0;">Hubungi Kami</p>
-          <h2>Butuh Kurir Sekarang? Chat Aja</h2>
-          <p class="lead">
-            Satu chat = kurir meluncur. Konsultasikan kebutuhan pengirimanmu sekarang,
-            kami balas cepat setiap hari.
-          </p>
-        </div>
-
-        <div class="grid contact-grid">
-          <article class="card contact-card">
-            <div class="icon" aria-hidden="true">📱</div>
-            <h3>WhatsApp Utama</h3>
-            <p>0878-6444-3131</p>
-            <a class="btn btn-light" href="https://wa.me/6287864443131?text=Halo%20Lombok%20Kurir!%20Saya%20mau%20order%20antar%20barang." target="_blank" rel="noopener">Chat WhatsApp</a>
-          </article>
-
-          <article class="card contact-card">
-            <div class="icon" aria-hidden="true">📞</div>
-            <h3>WhatsApp Alternatif</h3>
-            <p>0878-6444-3636</p>
-            <a class="btn btn-light" href="https://wa.me/6287864443636?text=Halo%20Lombok%20Kurir!%20Saya%20mau%20tanya%20layanan%20pengiriman." target="_blank" rel="noopener">Tanya Layanan</a>
-          </article>
-
-          <article class="card contact-card">
-            <div class="icon" aria-hidden="true">🎵</div>
-            <h3>TikTok</h3>
-            <p>@jasakurirlombok</p>
-            <a class="btn btn-light" href="https://tiktok.com/@jasakurirlombok" target="_blank" rel="noopener">Lihat TikTok</a>
-          </article>
-
-          <article class="card contact-card">
-            <div class="icon" aria-hidden="true">⏰</div>
-            <h3>Jam Operasional</h3>
-            <p>Setiap Hari • 08.00–21.00 WITA<br />Minggu tetap buka</p>
-          </article>
-        </div>
-
-        <div class="contact-actions">
-          <a class="btn btn-wa" href="https://wa.me/6287864443131?text=Halo%20Lombok%20Kurir!%20Saya%20mau%20order%20antar%20barang." target="_blank" rel="noopener">Order Sekarang</a>
-          <a class="btn btn-outline" style="border-color:rgba(255,255,255,.35);color:#fff;background:transparent;" href="#order-cepat">Isi Form Order</a>
-        </div>
+  <!-- ============ FAQ ============ -->
+  <section id="faq" class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-5 lg:px-8">
+      <div class="text-center mb-14 reveal">
+        <span class="inline-block text-brand-600 text-xs font-black uppercase tracking-[0.2em] mb-3">FAQ</span>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-4">Pertanyaan yang<br/><span class="gradient-text">Sering Ditanyakan</span></h2>
       </div>
-    </section>
-  </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <a href="#beranda" class="brand" style="color:#fff; margin-bottom:10px;">
-            <strong>LOMBOK KURIR</strong>
-            <span style="color:#a7f3d0;">Cepat • Aman • Terpercaya</span>
+      <div class="space-y-4">
+        <details class="reveal group bg-white rounded-2xl border-2 border-slate-100 hover:border-brand-200 transition p-6 cursor-pointer">
+          <summary class="flex justify-between items-center list-none font-black text-lg">
+            Apakah Lombok Kurir buka hari Minggu?
+            <span class="w-8 h-8 rounded-full bg-brand-100 text-brand-700 grid place-items-center group-open:rotate-45 transition">+</span>
+          </summary>
+          <p class="mt-4 text-slate-600 leading-relaxed">Ya. Lombok Kurir tetap membuka order pada hari Minggu dan hari libur tertentu selama kurir tersedia. Untuk memastikan jadwal, silakan chat terlebih dahulu.</p>
+        </details>
+
+        <details class="reveal group bg-white rounded-2xl border-2 border-slate-100 hover:border-brand-200 transition p-6 cursor-pointer" style="transition-delay:.1s">
+          <summary class="flex justify-between items-center list-none font-black text-lg">
+            Bagaimana cara order?
+            <span class="w-8 h-8 rounded-full bg-brand-100 text-brand-700 grid place-items-center group-open:rotate-45 transition">+</span>
+          </summary>
+          <p class="mt-4 text-slate-600 leading-relaxed">Anda bisa chat WhatsApp langsung. Sebutkan jenis barang, alamat jemput, alamat tujuan, dan waktu pengambilan.</p>
+        </details>
+
+        <details class="reveal group bg-white rounded-2xl border-2 border-slate-100 hover:border-brand-200 transition p-6 cursor-pointer" style="transition-delay:.2s">
+          <summary class="flex justify-between items-center list-none font-black text-lg">
+            Apakah bisa jemput barang?
+            <span class="w-8 h-8 rounded-full bg-brand-100 text-brand-700 grid place-items-center group-open:rotate-45 transition">+</span>
+          </summary>
+          <p class="mt-4 text-slate-600 leading-relaxed">Bisa. Setelah order dikonfirmasi, kurir akan datang ke alamat penjemputan untuk mengambil barang dan mengantarnya ke alamat tujuan.</p>
+        </details>
+
+        <details class="reveal group bg-white rounded-2xl border-2 border-slate-100 hover:border-brand-200 transition p-6 cursor-pointer" style="transition-delay:.3s">
+          <summary class="flex justify-between items-center list-none font-black text-lg">
+            Berapa ongkirnya?
+            <span class="w-8 h-8 rounded-full bg-brand-100 text-brand-700 grid place-items-center group-open:rotate-45 transition">+</span>
+          </summary>
+          <p class="mt-4 text-slate-600 leading-relaxed">Tarif disesuaikan dengan jarak, jenis barang, dan waktu pengambilan. Chat kami untuk cek ongkir dengan cepat.</p>
+        </details>
+
+        <details class="reveal group bg-white rounded-2xl border-2 border-slate-100 hover:border-brand-200 transition p-6 cursor-pointer" style="transition-delay:.4s">
+          <summary class="flex justify-between items-center list-none font-black text-lg">
+            Area mana saja yang dilayani?
+            <span class="w-8 h-8 rounded-full bg-brand-100 text-brand-700 grid place-items-center group-open:rotate-45 transition">+</span>
+          </summary>
+          <p class="mt-4 text-slate-600 leading-relaxed">Kota Mataram, Lombok Barat, Lombok Tengah, dan area sekitar. Untuk area lain, silakan konfirmasi terlebih dahulu.</p>
+        </details>
+
+        <details class="reveal group bg-white rounded-2xl border-2 border-slate-100 hover:border-brand-200 transition p-6 cursor-pointer" style="transition-delay:.5s">
+          <summary class="flex justify-between items-center list-none font-black text-lg">
+            Apakah bisa tracking posisi barang?
+            <span class="w-8 h-8 rounded-full bg-brand-100 text-brand-700 grid place-items-center group-open:rotate-45 transition">+</span>
+          </summary>
+          <p class="mt-4 text-slate-600 leading-relaxed">Bisa. Anda dapat meminta update posisi kurir melalui WhatsApp sejak penjemputan sampai barang tiba di tujuan.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA FINAL ============ -->
+  <section id="kontak" class="relative py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=1920&q=80')"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-900/95 via-brand-800/90 to-slate-900/95"></div>
+
+    <div class="relative max-w-4xl mx-auto px-5 lg:px-8 text-center text-white">
+      <div class="reveal">
+        <span class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider mb-6">
+          <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+          Kami Online Sekarang
+        </span>
+        <h2 class="text-4xl md:text-6xl font-black tracking-tight mb-6">
+          Butuh Kurir Sekarang?<br/>
+          <span class="bg-gradient-to-r from-emerald-300 to-yellow-300 bg-clip-text text-transparent">Chat Aja!</span>
+        </h2>
+        <p class="text-xl text-white/85 mb-10 max-w-2xl mx-auto">Satu chat = kurir meluncur. Konsultasikan kebutuhan pengirimanmu sekarang, kami balas cepat setiap hari.</p>
+
+        <div class="flex flex-wrap gap-4 justify-center mb-10">
+          <a href="https://wa.me/6287864443131?text=Halo%20Lombok%20Kurir!%20Saya%20mau%20order%20antar%20barang." target="_blank" rel="noopener"
+             class="group inline-flex items-center gap-3 bg-white text-brand-700 font-black px-8 py-4 rounded-full shadow-2xl hover:-translate-y-1 transition">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+            Chat WA: 0878-6444-3131
           </a>
-          <p>
-            Jasa kurir & pengiriman antar-jemput barang dan dokumen seputar Lombok.
-            Solusi kirim Anda setiap hari, termasuk Minggu.
-          </p>
-          <p>
-            #LombokKurir #TetapSiap #MingguTetapOn #KirimAmanSampaiTujuan
-          </p>
+          <a href="https://wa.me/6287864443636" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border-2 border-white/30 text-white font-black px-8 py-4 rounded-full hover:bg-white/20 transition">
+            WA Alternatif: 0878-6444-3636
+          </a>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
+          <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-4">
+            <div class="text-3xl mb-1">🎵</div>
+            <div class="text-xs font-bold uppercase text-white/70 mb-1">TikTok</div>
+            <div class="font-black">@jasakurirlombok</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-4">
+            <div class="text-3xl mb-1">⏰</div>
+            <div class="text-xs font-bold uppercase text-white/70 mb-1">Jam Buka</div>
+            <div class="font-black">08.00 - 21.00 WITA</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-4">
+            <div class="text-3xl mb-1">🗓️</div>
+            <div class="text-xs font-bold uppercase text-white/70 mb-1">Operasional</div>
+            <div class="font-black">Setiap Hari</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="bg-slate-950 text-slate-300 pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-5 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        <div>
+          <a href="#beranda" class="flex items-center gap-3 mb-5">
+            <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 grid place-items-center text-white text-xl shadow-lg">🛵</div>
+            <div class="leading-tight">
+              <div class="font-black text-white text-base">Lombok Kurir</div>
+              <div class="text-[11px] font-bold text-brand-400 tracking-wider uppercase">Cepat • Aman • Terpercaya</div>
+            </div>
+          </a>
+          <p class="text-sm leading-relaxed text-slate-400 mb-4">Jasa kurir & pengiriman antar-jemput barang dan dokumen seputar Lombok. Solusi kirim Anda setiap hari — termasuk Minggu.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-xs bg-slate-800 px-2 py-1 rounded-md">#LombokKurir</span>
+            <span class="text-xs bg-slate-800 px-2 py-1 rounded-md">#MingguTetapOn</span>
+          </div>
         </div>
 
         <div>
-          <h3>Layanan</h3>
-          <ul>
-            <li><a href="#layanan">Dokumen & Paket</a></li>
-            <li><a href="#layanan">Makanan & Minuman</a></li>
-            <li><a href="#layanan">Belanjaan</a></li>
-            <li><a href="#layanan">Oleh-Oleh</a></li>
-            <li><a href="#layanan">Barang Lainnya</a></li>
+          <h4 class="text-white font-black mb-4 text-sm uppercase tracking-wider">Layanan</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#layanan" class="hover:text-brand-400 transition">Dokumen & Paket</a></li>
+            <li><a href="#layanan" class="hover:text-brand-400 transition">Makanan & Minuman</a></li>
+            <li><a href="#layanan" class="hover:text-brand-400 transition">Belanjaan</a></li>
+            <li><a href="#layanan" class="hover:text-brand-400 transition">Oleh-Oleh</a></li>
+            <li><a href="#layanan" class="hover:text-brand-400 transition">Barang Lainnya</a></li>
           </ul>
         </div>
 
         <div>
-          <h3>Navigasi</h3>
-          <ul>
-            <li><a href="#beranda">Beranda</a></li>
-            <li><a href="#keunggulan">Keunggulan</a></li>
-            <li><a href="#cara-order">Cara Order</a></li>
-            <li><a href="#area">Area Layanan</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#kontak">Kontak</a></li>
+          <h4 class="text-white font-black mb-4 text-sm uppercase tracking-wider">Navigasi</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#beranda" class="hover:text-brand-400 transition">Beranda</a></li>
+            <li><a href="#keunggulan" class="hover:text-brand-400 transition">Keunggulan</a></li>
+            <li><a href="#cara-order" class="hover:text-brand-400 transition">Cara Order</a></li>
+            <li><a href="#area" class="hover:text-brand-400 transition">Area Layanan</a></li>
+            <li><a href="#faq" class="hover:text-brand-400 transition">FAQ</a></li>
           </ul>
         </div>
 
         <div>
-          <h3>Kontak</h3>
-          <ul>
-            <li><a href="https://wa.me/6287864443131" target="_blank" rel="noopener">WA: 0878-6444-3131</a></li>
-            <li><a href="https://wa.me/6287864443636" target="_blank" rel="noopener">WA: 0878-6444-3636</a></li>
-            <li><a href="https://tiktok.com/@jasakurirlombok" target="_blank" rel="noopener">TikTok: @jasakurirlombok</a></li>
-            <li>Mataram • Lombok Barat • Lombok Tengah • sekitarnya</li>
+          <h4 class="text-white font-black mb-4 text-sm uppercase tracking-wider">Kontak</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="https://wa.me/6287864443131" class="flex items-center gap-2 hover:text-brand-400 transition">📱 WA: 0878-6444-3131</a></li>
+            <li><a href="https://wa.me/6287864443636" class="flex items-center gap-2 hover:text-brand-400 transition">📞 WA: 0878-6444-3636</a></li>
+            <li><a href="https://tiktok.com/@jasakurirlombok" class="flex items-center gap-2 hover:text-brand-400 transition">🎵 @jasakurirlombok</a></li>
+            <li class="flex items-start gap-2">📍 <span>Mataram • Lombok Barat • Lombok Tengah</span></li>
           </ul>
         </div>
       </div>
 
-      <div class="footer-bottom">
-        <div>© 2026 Lombok Kurir. All rights reserved.</div>
-        <div>Cepat • Aman • Terpercaya — Solusi Kirim Anda</div>
+      <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="text-sm text-slate-500">© 2026 Lombok Kurir. All rights reserved.</div>
+        <div class="text-sm text-slate-500">Cepat • Aman • Terpercaya — Solusi Kirim Anda</div>
       </div>
     </div>
   </footer>
 
-  <!-- Floating WA -->
-  <a class="wa-float" href="https://wa.me/6287864443131?text=Halo%20Lombok%20Kurir!%20Saya%20mau%20order%20antar%20barang." target="_blank" rel="noopener" aria-label="Chat WhatsApp Lombok Kurir">
-    💬 Order WA
+  <!-- ============ FLOATING WA ============ -->
+  <a href="https://wa.me/6287864443131?text=Halo%20Lombok%20Kurir!%20Saya%20mau%20order%20antar%20barang." target="_blank" rel="noopener"
+     class="fixed bottom-6 right-6 z-50 group" aria-label="Chat WhatsApp">
+    <span class="wa-float-ring"></span>
+    <div class="relative flex items-center gap-2 bg-gradient-to-br from-green-500 to-green-600 text-white font-black pl-4 pr-5 py-4 rounded-full shadow-2xl shadow-green-500/40 group-hover:scale-105 transition">
+      <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+      <span class="hidden sm:inline">Order Sekarang</span>
+    </div>
   </a>
 
+  <!-- ============ JAVASCRIPT ============ -->
   <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const menu = document.getElementById('menu');
+    // ========== HERO CAROUSEL ==========
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentSlide = 0;
+    let autoplayTimer;
 
-    menuToggle?.addEventListener('click', function () {
-      menu.classList.toggle('open');
+    function goToSlide(index) {
+      slides[currentSlide].classList.remove('active');
+      dots[currentSlide].classList.remove('active');
+      currentSlide = (index + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+      resetAutoplay();
+    }
+
+    function nextSlide() { goToSlide(currentSlide + 1); }
+    function prevSlide() { goToSlide(currentSlide - 1); }
+
+    function resetAutoplay() {
+      clearInterval(autoplayTimer);
+      autoplayTimer = setInterval(nextSlide, 6000);
+    }
+
+    nextBtn?.addEventListener('click', nextSlide);
+    prevBtn?.addEventListener('click', prevSlide);
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.goto)));
     });
 
-    document.querySelectorAll('.menu a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        menu.classList.remove('open');
+    // Touch swipe support
+    let touchStartX = 0;
+    const carousel = document.getElementById('heroCarousel');
+    carousel?.addEventListener('touchstart', e => touchStartX = e.touches[0].clientX);
+    carousel?.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) diff > 0 ? nextSlide() : prevSlide();
+    });
+
+    resetAutoplay();
+
+    // ========== NAVBAR SCROLL ==========
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    });
+
+    // ========== MOBILE MENU ==========
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+    // ========== SCROLL REVEAL ==========
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
       });
-    });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    revealElements.forEach(el => revealObserver.observe(el));
 
-    const orderForm = document.getElementById('orderForm');
+    // ========== COUNTER ANIMATION ==========
+    const counters = document.querySelectorAll('[data-count]');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.count);
+          const duration = 2000;
+          const step = target / (duration / 16);
+          let current = 0;
+          const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+              el.textContent = target.toLocaleString('id-ID') + (target >= 1000 ? '+' : '');
+              clearInterval(timer);
+            } else {
+              el.textContent = Math.floor(current).toLocaleString('id-ID');
+            }
+          }, 16);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => counterObserver.observe(c));
 
-    orderForm?.addEventListener('submit', function (event) {
-      event.preventDefault();
-
-      const nama = document.getElementById('nama').value.trim();
-      const barang = document.getElementById('barang').value.trim();
-      const jemput = document.getElementById('jemput').value.trim();
-      const tujuan = document.getElementById('tujuan').value.trim();
-      const catatan = document.getElementById('catatan').value.trim();
-      const nomor = document.querySelector('input[name="nomor"]:checked')?.value || '6287864443131';
-
-      const pesan = [
-        'Halo Lombok Kurir! Saya mau order antar barang.',
-        '',
-        '*Data Order*',
-        'Nama: ' + nama,
-        'Jenis barang: ' + barang,
-        'Alamat jemput: ' + jemput,
-        'Alamat tujuan: ' + tujuan,
-        'Catatan: ' + (catatan || '-')
-      ].join('\n');
-
-      const url = 'https://wa.me/' + nomor + '?text=' + encodeURIComponent(pesan);
-      window.open(url, '_blank');
+    // ========== KEYBOARD NAV FOR CAROUSEL ==========
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
     });
   </script>
 </body>
