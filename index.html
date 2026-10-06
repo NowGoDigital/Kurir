@@ -1,1 +1,742 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lombok Kurir — Jasa Kurir Cepat, Aman, Terpercaya se-Lombok</title>
+<meta name="description" content="Lombok Kurir: layanan antar-jemput barang & dokumen seputar Lombok. Open order setiap hari, termasuk hari Minggu. Cepat, Aman, Terpercaya.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛵</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+<style>
+/* ============ 1. RESET & VARIABEL ============ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0a2f5c; --navy-2:#0d3b74; --navy-3:#08264a;
+  --blue:#12a3e8; --blue-2:#0b86c8; --sky:#e8f4fd;
+  --yellow:#ffd21f; --green:#25d366;
+  --ink:#0e2a47; --muted:#5b7590; --line:#dbe9f5;
+  --bg:#f5fafe; --white:#fff;
+  --radius:18px;
+  --pad-x:clamp(16px,4vw,36px);          /* padding kiri-kanan minimalis */
+  --sec-y:clamp(52px,7vw,84px);          /* padding antar section minimalis */
+  --shadow:0 10px 30px rgba(10,47,92,.10);
+  --font-d:'Montserrat',sans-serif;
+  --font-b:'Plus Jakarta Sans',sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
+body{font-family:var(--font-b);color:var(--ink);background:var(--bg);line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+button{font-family:inherit;border:none;background:none;cursor:pointer}
+.container{width:min(1180px,100% - (var(--pad-x) * 2));margin-inline:auto}
+section{padding:var(--sec-y) 0}
+
+/* ============ 2. UTILITAS ============ */
+.kicker{display:inline-flex;align-items:center;gap:.6rem;color:var(--blue-2);font-weight:800;letter-spacing:.18em;text-transform:uppercase;font-size:.76rem}
+.kicker::before{content:'';width:26px;height:3px;background:var(--yellow);border-radius:2px}
+.sec-title{font-family:var(--font-d);font-weight:800;font-size:clamp(1.6rem,3.6vw,2.45rem);color:var(--navy);line-height:1.18;margin:.55rem 0 .7rem}
+.sec-title .hl{color:var(--blue)}
+.sec-title .yl{background:linear-gradient(transparent 68%,rgba(255,210,31,.55) 68% 94%,transparent 94%)}
+.sec-desc{color:var(--muted);max-width:640px;font-size:.98rem}
+.sec-head{margin-bottom:clamp(24px,4vw,42px)}
+
+.btn{display:inline-flex;align-items:center;gap:.55rem;font-weight:800;border-radius:999px;padding:.92rem 1.6rem;font-size:.95rem;transition:.25s;border:2px solid transparent;cursor:pointer}
+.btn svg{width:19px;height:19px;flex:none}
+.btn:hover{transform:translateY(-3px)}
+.btn-wa{background:var(--green);color:#fff;box-shadow:0 8px 22px rgba(37,211,102,.35)}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 8px 22px rgba(18,163,232,.30)}
+.btn-yellow{background:var(--yellow);color:var(--navy);box-shadow:0 8px 22px rgba(255,210,31,.30)}
+.btn-ghost{border-color:rgba(255,255,255,.55);color:#fff;backdrop-filter:blur(4px)}
+.btn-ghost:hover{background:rgba(255,255,255,.12)}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;transition-delay:var(--d,0s)}
+.reveal.in{opacity:1;transform:none}
+
+/* ============ 3. NAVBAR ============ */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s;padding:14px 0}
+.navbar.scrolled{background:rgba(255,255,255,.94);backdrop-filter:blur(12px);box-shadow:0 6px 24px rgba(10,47,92,.10);padding:9px 0}
+.nav-wrap{display:flex;align-items:center;gap:22px}
+.brand{display:flex;align-items:center;gap:11px;color:#fff}
+.brand-mark{width:46px;height:46px;flex:none;border-radius:13px;background:linear-gradient(135deg,var(--blue),var(--navy-2));display:grid;place-items:center;color:#fff;box-shadow:0 6px 16px rgba(10,47,92,.30)}
+.brand-mark svg{width:32px;height:24px}
+.brand-text b{font-family:var(--font-d);font-style:italic;font-weight:900;font-size:1.06rem;letter-spacing:.02em;line-height:1.05;display:block}
+.brand-text b span{color:var(--yellow)}
+.brand-text small{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.navbar.scrolled .brand{color:var(--navy)}
+.navbar.scrolled .brand-text b span{color:var(--blue)}
+.menu{display:flex;align-items:center;gap:26px;margin-left:auto}
+.menu a:not(.nav-cta){color:rgba(255,255,255,.92);font-weight:700;font-size:.92rem;position:relative;padding:6px 0}
+.menu a:not(.nav-cta)::after{content:'';position:absolute;left:0;bottom:0;width:0;height:3px;border-radius:2px;background:var(--yellow);transition:.3s}
+.menu a:not(.nav-cta):hover::after,.menu a:not(.nav-cta).active::after{width:100%}
+.navbar.scrolled .menu a:not(.nav-cta){color:var(--navy)}
+.navbar.scrolled .menu a:not(.nav-cta)::after{background:var(--blue)}
+.nav-cta{padding:.68rem 1.25rem;font-size:.86rem}
+.hamburger{display:none;flex-direction:column;gap:5px;margin-left:auto;padding:6px}
+.hamburger span{width:26px;height:3px;border-radius:3px;background:#fff;transition:.3s}
+.navbar.scrolled .hamburger span{background:var(--navy)}
+body.menu-open .hamburger span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+body.menu-open .hamburger span:nth-child(2){opacity:0}
+body.menu-open .hamburger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+/* ============ 4. HERO SLIDER ============ */
+.hero{position:relative;overflow:hidden;background:var(--navy)}
+.hero-slide{position:absolute;inset:0;display:flex;align-items:center;background-size:cover;background-position:center;opacity:0;visibility:hidden;transform:scale(1.07);transition:opacity .9s ease,visibility .9s,transform 7s ease-out}
+.hero-slide.active{opacity:1;visibility:visible;transform:scale(1)}
+.hero-slide::before{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(6,28,56,.94) 0%,rgba(9,45,86,.80) 48%,rgba(10,60,110,.38) 100%)}
+.hero-slide::after{content:'';position:absolute;inset:auto 0 0 0;height:140px;background:linear-gradient(transparent,rgba(6,28,56,.55))}
+.hero-copy{position:relative;z-index:2;padding:150px 0 150px;max-width:780px}
+.hero-badge{display:inline-flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(6px);color:#fff;padding:.5rem 1.15rem;border-radius:999px;font-weight:700;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase}
+.pulse-dot{width:9px;height:9px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 0 rgba(255,210,31,.7);animation:pulse 1.9s infinite}
+@keyframes pulse{to{box-shadow:0 0 0 14px rgba(255,210,31,0)}}
+.hero-title{font-family:var(--font-d);font-style:italic;font-weight:900;text-transform:uppercase;color:#fff;font-size:clamp(2.15rem,6vw,4.15rem);line-height:1.06;letter-spacing:.5px;text-shadow:0 6px 26px rgba(0,0,0,.35);margin:1.15rem 0 .95rem}
+.hero-title .yl{color:var(--yellow)}
+.hero-sub{color:rgba(255,255,255,.92);font-size:clamp(.98rem,1.6vw,1.12rem);max-width:620px;line-height:1.75}
+.hero-actions{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:1.9rem}
+.hero-ui{position:absolute;left:0;right:0;bottom:26px;z-index:6}
+.hero-ui .container{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.hero-dots{display:flex;gap:9px}
+.hero-dot{width:11px;height:11px;border-radius:999px;background:rgba(255,255,255,.40);transition:.3s}
+.hero-dot.active{width:30px;background:var(--yellow)}
+.hero-arrows{display:flex;gap:10px}
+.hero-arrow{width:46px;height:46px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);color:#fff;background:rgba(255,255,255,.10);display:grid;place-items:center;transition:.3s;backdrop-filter:blur(4px)}
+.hero-arrow svg{width:20px;height:20px}
+.hero-arrow:hover{background:var(--yellow);color:var(--navy);border-color:var(--yellow)}
+.hero-progress{position:absolute;bottom:0;left:0;right:0;height:4px;background:rgba(255,255,255,.16);z-index:7}
+.hero-progress span{display:block;height:100%;background:var(--yellow);width:0}
+
+/* ============ 5. STATISTIK (overlap) ============ */
+.stats{padding:0;margin-top:-64px;position:relative;z-index:9}
+.stats-card{background:#fff;border-radius:20px;box-shadow:var(--shadow);display:grid;grid-template-columns:repeat(4,1fr);padding:clamp(18px,3vw,28px) clamp(14px,2.5vw,26px)}
+.stat{display:flex;gap:14px;align-items:center;padding:8px 16px}
+.stat + .stat{border-left:1px solid var(--line)}
+.stat .ico{width:50px;height:50px;flex:none;border-radius:14px;background:var(--sky);color:var(--blue-2);display:grid;place-items:center}
+.stat .ico svg{width:25px;height:25px}
+.stat b{font-family:var(--font-d);font-weight:900;font-size:clamp(1.25rem,2.4vw,1.8rem);color:var(--navy);line-height:1.1;display:block}
+.stat small{color:var(--muted);font-weight:600;font-size:.8rem}
+
+/* ============ 6. MARQUEE ============ */
+.marquee{background:var(--navy);color:#fff;overflow:hidden;padding:15px 0;margin-top:var(--sec-y)}
+.marquee-track{display:flex;width:max-content;animation:scroll 28s linear infinite}
+.marquee-group{display:flex;align-items:center;gap:2.4rem;padding-right:2.4rem;font-family:var(--font-d);font-style:italic;font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:.95rem;white-space:nowrap}
+.marquee-group i{color:var(--yellow);font-style:normal}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ============ 7. LAYANAN ============ */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px)}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;position:relative;overflow:hidden;transition:.3s}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:transparent}
+.card::after{content:'';position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--blue),var(--yellow));opacity:0;transition:.3s}
+.card:hover::after{opacity:1}
+.card .icon{width:54px;height:54px;border-radius:14px;background:var(--sky);color:var(--blue-2);display:grid;place-items:center;margin-bottom:16px}
+.card .icon svg{width:26px;height:26px}
+.card h3{font-family:var(--font-d);font-weight:800;color:var(--navy);font-size:1.06rem;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.9rem;line-height:1.68}
+.card-cta{background:linear-gradient(135deg,var(--blue) 0%,var(--navy-2) 100%);border:none;display:flex;flex-direction:column;justify-content:center;gap:12px}
+.card-cta::after{display:none}
+.card-cta h3{color:#fff;font-size:1.3rem}
+.card-cta p{color:rgba(255,255,255,.85)}
+.card-cta .btn{align-self:flex-start;margin-top:6px}
+
+/* ============ 8. KEUNGGULAN ============ */
+.why{background:#fff}
+.why-grid{display:grid;grid-template-columns:1.02fr 1.35fr;gap:clamp(24px,4.5vw,54px);align-items:start}
+.sunday-card{background:var(--yellow);border-radius:20px;padding:24px;display:flex;gap:16px;align-items:flex-start;margin-top:26px;box-shadow:0 12px 30px rgba(255,210,31,.35)}
+.sunday-card .ico{width:52px;height:52px;flex:none;border-radius:14px;background:var(--navy);color:var(--yellow);display:grid;place-items:center}
+.sunday-card .ico svg{width:26px;height:26px}
+.sunday-card b{font-family:var(--font-d);font-style:italic;font-weight:900;text-transform:uppercase;color:var(--navy);font-size:1.12rem;display:block;margin-bottom:4px}
+.sunday-card p{color:rgba(10,47,92,.82);font-size:.9rem;font-weight:600}
+.why-list{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,2vw,20px)}
+.why-item{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;transition:.3s}
+.why-item:hover{background:#fff;box-shadow:var(--shadow);transform:translateY(-5px)}
+.why-item .ico{width:52px;height:52px;border-radius:50%;background:var(--navy);color:var(--yellow);display:grid;place-items:center;margin-bottom:14px}
+.why-item .ico svg{width:25px;height:25px}
+.why-item h3{font-family:var(--font-d);font-weight:800;color:var(--navy);font-size:1rem;margin-bottom:6px}
+.why-item p{color:var(--muted);font-size:.88rem}
+
+/* ============ 9. CARA ORDER ============ */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative}
+.steps::before{content:'';position:absolute;top:52px;left:11%;right:11%;border-top:2px dashed #bcd7ec;z-index:0}
+.step{position:relative;z-index:1;text-align:center;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 18px;transition:.3s}
+.step:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.step .num{width:52px;height:52px;margin:0 auto 14px;border-radius:50%;background:var(--navy);color:var(--yellow);font-family:var(--font-d);font-weight:900;display:grid;place-items:center;font-size:1.2rem;box-shadow:0 6px 0 rgba(18,163,232,.35)}
+.step h3{font-family:var(--font-d);font-weight:800;color:var(--navy);font-size:1rem;margin-bottom:6px}
+.step p{color:var(--muted);font-size:.87rem}
+
+/* ============ 10. AREA LAYANAN ============ */
+.area{background:#fff}
+.area-wrap{display:grid;grid-template-columns:1.15fr .95fr;gap:clamp(24px,4.5vw,54px);align-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.chip{background:var(--bg);border:1.5px solid var(--line);border-radius:999px;padding:.6rem 1.15rem;font-weight:700;font-size:.88rem;color:var(--navy);display:inline-flex;gap:.5rem;align-items:center;transition:.25s}
+.chip:hover{border-color:var(--blue);background:var(--sky)}
+.chip svg{width:16px;height:16px;color:var(--blue)}
+.area-note{margin-top:20px;background:var(--sky);border-left:4px solid var(--blue);border-radius:12px;padding:14px 18px;font-size:.88rem;color:var(--navy-2);font-weight:600}
+.area-card{background:linear-gradient(160deg,var(--navy) 0%,var(--blue-2) 100%);border-radius:22px;color:#fff;padding:clamp(24px,3.5vw,34px);position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.area-card::before{content:'';position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(255,210,31,.16);top:-70px;right:-70px}
+.area-card h3{font-family:var(--font-d);font-style:italic;font-weight:900;text-transform:uppercase;font-size:1.25rem;margin-bottom:18px}
+.area-card h3 span{color:var(--yellow)}
+.area-card li{display:flex;gap:12px;padding:12px 0;border-bottom:1px dashed rgba(255,255,255,.22)}
+.area-card li:last-child{border:none}
+.area-card li svg{width:20px;height:20px;flex:none;color:var(--yellow);margin-top:3px}
+.area-card li b{display:block;font-size:.96rem}
+.area-card li small{color:rgba(255,255,255,.75);font-size:.82rem}
+
+/* ============ 11. TESTIMONI ============ */
+.t-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;display:flex;flex-direction:column;gap:14px;transition:.3s}
+.t-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.stars{color:var(--yellow);letter-spacing:3px;font-size:1rem}
+.t-card q{color:var(--ink);font-size:.94rem;line-height:1.75;quotes:'“' '”'}
+.t-user{display:flex;align-items:center;gap:12px;margin-top:auto}
+.t-avatar{width:46px;height:46px;flex:none;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--navy-2));color:#fff;display:grid;place-items:center;font-weight:800;font-size:.9rem}
+.t-user b{display:block;color:var(--navy);font-size:.92rem;line-height:1.2}
+.t-user small{color:var(--muted);font-size:.78rem}
+
+/* ============ 12. KONTAK / CTA ============ */
+.contact-panel{background:linear-gradient(135deg,var(--navy) 0%,#0e4c86 55%,var(--blue-2) 100%);border-radius:26px;color:#fff;padding:clamp(28px,5vw,54px);display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(22px,4vw,46px);position:relative;overflow:hidden}
+.contact-panel::before{content:'';position:absolute;width:300px;height:300px;border-radius:50%;background:rgba(255,210,31,.14);bottom:-120px;left:-90px}
+.contact-panel .kicker{color:var(--yellow)}
+.contact-panel .sec-title{color:#fff}
+.contact-panel .sec-title .yl{color:var(--yellow);background:none}
+.contact-panel p{color:rgba(255,255,255,.88);font-size:.96rem;max-width:520px}
+.contact-actions{display:flex;gap:.9rem;flex-wrap:wrap;margin:22px 0 26px}
+.contact-nums{display:flex;gap:26px;flex-wrap:wrap}
+.contact-nums b{font-family:var(--font-d);font-weight:900;font-size:clamp(1.15rem,2.4vw,1.55rem);letter-spacing:.02em;display:block}
+.contact-nums small{color:rgba(255,255,255,.7);font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;font-weight:700}
+.contact-list{display:flex;flex-direction:column;gap:12px;position:relative;z-index:1}
+.contact-item{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(6px);border-radius:16px;padding:14px 18px;transition:.3s}
+.contact-item:hover{background:rgba(255,255,255,.18);transform:translateX(4px)}
+.contact-item .ico{width:44px;height:44px;flex:none;border-radius:12px;background:var(--yellow);color:var(--navy);display:grid;place-items:center}
+.contact-item .ico svg{width:22px;height:22px}
+.contact-item small{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.7);font-weight:700}
+.contact-item b{font-size:.96rem}
+
+/* ============ 13. FOOTER ============ */
+footer{background:var(--navy-3);color:rgba(255,255,255,.82);padding:clamp(40px,6vw,64px) 0 0;margin-top:var(--sec-y)}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:clamp(24px,4vw,44px);padding-bottom:40px}
+.foot-brand .brand{color:#fff;margin-bottom:16px}
+.foot-brand p{font-size:.9rem;max-width:300px}
+.socials{display:flex;gap:10px;margin-top:18px}
+.socials a{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);display:grid;place-items:center;color:#fff;transition:.3s}
+.socials a:hover{background:var(--yellow);color:var(--navy);transform:translateY(-3px)}
+.socials svg{width:19px;height:19px}
+.foot-grid h4{font-family:var(--font-d);color:#fff;font-size:.98rem;margin-bottom:16px;text-transform:uppercase;letter-spacing:.08em}
+.foot-grid li{margin-bottom:10px}
+.foot-grid li a{font-size:.9rem;transition:.25s}
+.foot-grid li a:hover{color:var(--yellow);padding-left:5px}
+.foot-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.foot-tags span{font-size:.74rem;font-weight:700;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:.35rem .8rem;border-radius:999px}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding:18px 0;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.82rem}
+.foot-bottom b{color:var(--yellow)}
+
+/* ============ 14. FLOATING ============ */
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--green);display:grid;place-items:center;color:#fff;box-shadow:0 10px 26px rgba(37,211,102,.45);animation:floaty 3s ease-in-out infinite}
+.wa-float svg{width:28px;height:28px}
+.wa-float::after{content:'';position:absolute;inset:0;border-radius:50%;border:2px solid var(--green);animation:ring 2s infinite}
+@keyframes ring{to{transform:scale(1.55);opacity:0}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.to-top{position:fixed;right:28px;bottom:96px;z-index:60;width:46px;height:46px;border-radius:50%;background:#fff;color:var(--navy);box-shadow:var(--shadow);display:grid;place-items:center;opacity:0;pointer-events:none;transition:.35s}
+.to-top.show{opacity:1;pointer-events:auto}
+.to-top svg{width:20px;height:20px}
+
+/* ============ 15. RESPONSIVE ============ */
+@media(max-width:1000px){
+  .grid-3{grid-template-columns:repeat(2,1fr)}
+  .why-grid,.area-wrap,.contact-panel{grid-template-columns:1fr}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .steps::before{display:none}
+  .foot-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:900px){
+  .hamburger{display:flex}
+  .menu{position:fixed;top:0;right:0;height:100dvh;width:min(320px,85vw);background:var(--navy);flex-direction:column;align-items:flex-start;justify-content:flex-start;padding:96px 30px 30px;gap:20px;transform:translateX(100%);transition:.4s;box-shadow:-10px 0 40px rgba(0,0,0,.25);margin-left:0}
+  body.menu-open .menu{transform:none}
+  .menu a:not(.nav-cta){color:#fff !important;font-size:1.05rem}
+  .nav-cta{width:100%;justify-content:center}
+}
+@media(max-width:640px){
+  .grid-3,.why-list,.steps,.foot-grid{grid-template-columns:1fr}
+  .stats-card{grid-template-columns:repeat(2,1fr);gap:8px}
+  .stat + .stat{border-left:none}
+  .stat:nth-child(even){border-left:1px solid var(--line)}
+  .hero-copy{padding:130px 0 130px}
+  .contact-nums{gap:16px}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar" id="navbar">
+  <div class="container nav-wrap">
+    <a href="#beranda" class="brand" aria-label="Lombok Kurir">
+      <span class="brand-mark">
+        <svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 14h14M2 24h12M6 34h9"/>
+          <circle cx="26" cy="38" r="7"/><circle cx="54" cy="38" r="7"/>
+          <path d="M26 38l8-20h10l4 10h6l4 10"/>
+          <circle cx="42" cy="6" r="5" fill="currentColor" stroke="none"/>
+          <path d="M36 14c6-3 10 1 11 6l2 8H38z" fill="currentColor" stroke="none"/>
+        </svg>
+      </span>
+      <span class="brand-text"><b>LOMBOK <span>KURIR</span></b><small>Cepat • Aman • Terpercaya</small></span>
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#beranda" class="active">Beranda</a>
+      <a href="#layanan">Layanan</a>
+      <a href="#keunggulan">Keunggulan</a>
+      <a href="#cara-order">Cara Order</a>
+      <a href="#area">Area</a>
+      <a href="#kontak">Kontak</a>
+      <a class="btn btn-wa nav-cta" href="https://wa.me/6287864443131?text=Halo%20Lombok%20Kurir!%20Saya%20mau%20order%20antar%20barang." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Order Sekarang
+      </a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Buka menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ================= HERO SLIDER ================= -->
+<section class="hero" id="beranda" style="padding:0">
+  <!-- Ganti URL background di bawah dengan foto asli tim Lombok Kurir untuk hasil maksimal -->
+  <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1920&q=60')">
+    <div class="container"><div class="hero-copy">
+      <span class="hero-badge"><i class="pulse-dot"></i> Open Order • Setiap Hari</span>
+      <h1 class="hero-title">Walupun Hari <span class="yl">Minggu</span>, Lombok Kurir Tetap <span class="yl">Siap!</span></h1>
+      <p class="hero-sub">Layanan antar-jemput barang & dokumen seputar Lombok. Cepat dijemput, aman di jalan, sampai tepat di tujuan — termasuk akhir pekan dan hari libur.</p>
+      <div class="hero-actions">
+        <a class="btn btn-wa" href="https://wa.me/6287864443131?text=Halo%20Lombok%20Kurir!%20Saya%20mau%20order%20antar%20barang." target="_blank" rel="noopener">Order via WhatsApp</a>
+        <a class="btn btn-ghost" href="#layanan">Lihat Layanan</a>
+      </div>
+    </div></div>
+  </div>
+  <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=1920&q=60')">
+    <div class="container"><div class="hero-copy">
+      <span class="hero-badge"><i class="pulse-dot"></i> Kirim Apa Saja</span>
+      <h1 class="hero-title">Dokumen, Paket, Makanan hingga <span class="yl">Oleh-Oleh</span> — Kami Antar!</h1>
+      <p class="hero-sub">Dari belanjaan harian sampai titipan bisnis, kurir kami siap meluncur menjemput dan mengantar ke alamat tujuan Anda.</p>
+      <div class="hero-actions">
+        <a class="btn btn-yellow" href="#layanan">Jenis Layanan</a>
+        <a class="btn btn-ghost" href="#cara-order">Cara Order</a>
+      </div>
+    </div></div>
+  </div>
+  <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1920&q=60')">
+    <div class="container"><div class="hero-copy">
+      <span class="hero-badge"><i class="pulse-dot"></i> Cepat • Aman • Terpercaya</span>
+      <h1 class="hero-title">Cepat Sampai, <span class="yl">Aman</span> Terjaga, Terpercaya di Seluruh Lombok</h1>
+      <p class="hero-sub">Didukung kurir berpengalaman yang hafal setiap jalan — dari pusat Kota Mataram hingga pelosok Lombok Barat & Lombok Tengah.</p>
+      <div class="hero-actions">
+        <a class="btn btn-wa" href="https://wa.me/6287864443636?text=Halo%20Lombok%20Kurir!%20Saya%20mau%20tanya%20layanan%20pengiriman." target="_blank" rel="noopener">Chat Kurir Kami</a>
+        <a class="btn btn-ghost" href="#keunggulan">Keunggulan Kami</a>
+      </div>
+    </div></div>
+  </div>
+  <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=60')">
+    <div class="container"><div class="hero-copy">
+      <span class="hero-badge"><i class="pulse-dot"></i> Seputar Lombok</span>
+      <h1 class="hero-title">Dari Mataram sampai <span class="yl">Lombok Tengah</span>, Satu Chat Kurir Meluncur</h1>
+      <p class="hero-sub">Melayani pengiriman antar kecamatan setiap hari. Tracking jelas lewat WhatsApp, harga bersahabat, customer puas.</p>
+      <div class="hero-actions">
+        <a class="btn btn-wa" href="https://wa.me/6287864443131?text=Halo%20Lombok%20Kurir!%20Mohon%20info%20area%20pengiriman." target="_blank" rel="noopener">Cek Area Layanan</a>
+        <a class="btn btn-ghost" href="#area">Lihat Area</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="hero-ui">
+    <div class="container">
+      <div class="hero-dots" id="heroDots"></div>
+      <div class="hero-arrows">
+        <button class="hero-arrow" id="heroPrev" aria-label="Slide sebelumnya"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="hero-arrow" id="heroNext" aria-label="Slide berikutnya"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <div class="hero-progress"><span id="heroBar"></span></div>
+</section>
+
+<!-- ================= STATISTIK ================= -->
+<div class="stats">
+  <div class="container">
+    <div class="stats-card reveal">
+      <div class="stat">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="M3.3 8.3L12 13l8.7-4.7M12 13v9"/></svg></span>
+        <div><b><span data-count="5000" data-suffix="+">0</span></b><small>Pengiriman Sukses</small></div>
+      </div>
+      <div class="stat">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span>
+        <div><b><span data-count="7">0</span> Hari</b><small>Operasional / Minggu</small></div>
+      </div>
+      <div class="stat">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+        <div><b><span data-count="20" data-suffix="+">0</span></b><small>Kecamatan Terjangkau</small></div>
+      </div>
+      <div class="stat">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></span>
+        <div><b><span data-count="98" data-suffix="%">0</span></b><small>Customer Puas</small></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-group"><span>Cepat Sampai</span><i>★</i><span>Aman Terpercaya</span><i>★</i><span>Harga Bersahabat</span><i>★</i><span>Tracking Jelas</span><i>★</i><span>Minggu Tetap On</span><i>★</i><span>Kirim Apa Saja</span><i>★</i></div>
+    <div class="marquee-group"><span>Cepat Sampai</span><i>★</i><span>Aman Terpercaya</span><i>★</i><span>Harga Bersahabat</span><i>★</i><span>Tracking Jelas</span><i>★</i><span>Minggu Tetap On</span><i>★</i><span>Kirim Apa Saja</span><i>★</i></div>
+  </div>
+</div>
+
+<!-- ================= LAYANAN ================= -->
+<section id="layanan">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="kicker">Layanan Kami</span>
+      <h2 class="sec-title">Kirim Apa Saja, <span class="hl">Kami Antar</span> ke Tujuan!</h2>
+      <p class="sec-desc">Apapun kebutuhan pengirimanmu, Lombok Kurir siap jemput dan antar dengan amanah setiap hari.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card reveal">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span>
+        <h3>Dokumen & Paket</h3>
+        <p>Surat penting, berkas kantor, hingga paket online shop — dijemput dan diantar cepat di hari yang sama.</p>
+      </div>
+      <div class="card reveal" style="--d:.08s">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1M3 8h14v6a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"/><path d="M6 2v2M10 2v2M14 2v2"/></svg></span>
+        <h3>Makanan & Minuman</h3>
+        <p>Titip beli atau antar pesanan kuliner favoritmu — tetap hangat, rapi, dan aman sampai tujuan.</p>
+      </div>
+      <div class="card reveal" style="--d:.16s">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1.2 13H4.8L6 7z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg></span>
+        <h3>Belanjaan</h3>
+        <p>Belanja pasar, supermarket, atau kebutuhan rumah tangga? Serahkan saja pada kurir kami.</p>
+      </div>
+      <div class="card reveal">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4"/><path d="M5 12v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8M12 8v13"/><path d="M12 8s-4.5.2-4.5-2.5S11 2 12 8zM12 8s4.5.2 4.5-2.5S13 2 12 8z"/></svg></span>
+        <h3>Oleh-Oleh</h3>
+        <p>Mutiara, kaos, kuliner khas Lombok... kami antar dengan aman sampai ke tangan penerima.</p>
+      </div>
+      <div class="card reveal" style="--d:.08s">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="M3.3 8.3L12 13l8.7-4.7M12 13v9"/></svg></span>
+        <h3>Barang Lainnya</h3>
+        <p>Elektronik, sparepart, barang usaha — kirim apa saja, kami siap antar ke tujuan.</p>
+      </div>
+      <div class="card card-cta reveal" style="--d:.16s">
+        <h3>Butuh Antar Khusus?</h3>
+        <p>Chat kami, sebutkan kebutuhanmu. Jadwal & jenis kurir bisa disesuaikan dengan permintaanmu!</p>
+        <a class="btn btn-yellow" href="https://wa.me/6287864443131?text=Halo%20Lombok%20Kurir!%20Saya%20butuh%20layanan%20antar%20khusus." target="_blank" rel="noopener">Order via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= KEUNGGULAN ================= -->
+<section class="why" id="keunggulan">
+  <div class="container why-grid">
+    <div class="reveal">
+      <span class="kicker">Kenapa Kami?</span>
+      <h2 class="sec-title">Kurir Lokal yang <span class="hl">Bisa Diandalkan</span> Setiap Hari</h2>
+      <p class="sec-desc">Bukan sekadar antar barang — kami jaga kepercayaan Anda di setiap kilometer perjalanan.</p>
+      <div class="sunday-card">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18M9 15h2M14 15h2"/></svg></span>
+        <div>
+          <b>Hari Minggu Tetap Kirim, Tetap ON!</b>
+          <p>Open order setiap hari termasuk hari Minggu. Chat WA masuk, kurir langsung meluncur!</p>
+        </div>
+      </div>
+    </div>
+    <div class="why-list">
+      <div class="why-item reveal">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+        <h3>Cepat Sampai Tujuan</h3>
+        <p>Kurir standby setiap hari dan langsung meluncur begitu order Anda masuk.</p>
+      </div>
+      <div class="why-item reveal" style="--d:.08s">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></span>
+        <h3>Aman & Barang Terjaga</h3>
+        <p>Barang diamankan di box pengiriman dan dikawal penuh sampai tujuan.</p>
+      </div>
+      <div class="why-item reveal" style="--d:.16s">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12l-8 8-9-9V4h7l10 8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span>
+        <h3>Harga Bersahabat</h3>
+        <p>Tarif transparan dan ramah di kantong, disesuaikan dengan jarak pengiriman.</p>
+      </div>
+      <div class="why-item reveal" style="--d:.24s">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+        <h3>Tracking Jelas</h3>
+        <p>Update posisi kurir via WhatsApp, dari penjemputan sampai barang tiba.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CARA ORDER ================= -->
+<section id="cara-order">
+  <div class="container">
+    <div class="sec-head reveal" style="text-align:center;margin-inline:auto">
+      <span class="kicker" style="justify-content:center">Cara Order</span>
+      <h2 class="sec-title">Order Gampang, <span class="yl">4 Langkah</span> Selesai</h2>
+      <p class="sec-desc" style="margin-inline:auto">Cukup dari HP, kurir kami yang urus sisanya.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><span class="num">1</span><h3>Chat WhatsApp</h3><p>Kirim pesan ke nomor kami, sebutkan barang & alamat jemput.</p></div>
+      <div class="step reveal" style="--d:.08s"><span class="num">2</span><h3>Konfirmasi Order</h3><p>Kami cek area & tarif, Anda konfirmasi, order masuk antrean.</p></div>
+      <div class="step reveal" style="--d:.16s"><span class="num">3</span><h3>Kurir Menjemput</h3><p>Kurir meluncur ke lokasi jemput, barang diamankan di box motor.</p></div>
+      <div class="step reveal" style="--d:.24s"><span class="num">4</span><h3>Sampai Tujuan</h3><p>Barang tiba dengan selamat, pembayaran selesai, semua senang!</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AREA LAYANAN ================= -->
+<section class="area" id="area">
+  <div class="container area-wrap">
+    <div class="reveal">
+      <span class="kicker">Area Layanan</span>
+      <h2 class="sec-title">Melayani Pengiriman <span class="hl">Seputar Lombok</span></h2>
+      <p class="sec-desc">Jangkauan kami mencakup kota hingga kecamatan sekitar. Area lain? Chat dulu, kami usahakan!</p>
+      <div class="chips">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Mataram</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Lombok Barat</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Lombok Tengah</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> & Daerah Sekitarnya</span>
+      </div>
+      <div class="area-note">📌 Berada di luar area list? Tenang — kirim chat dulu, kurir kami siap negosiasi jarak!</div>
+    </div>
+    <div class="area-card reveal" style="--d:.1s">
+      <h3>Zona Antar <span>Lombok Kurir</span></h3>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg><div><b>Kota Mataram</b><small>Ampenan • Mataram • Cakranegara • Sandubaya</small></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg><div><b>Lombok Barat</b><small>Senggigi • Narmada • Gerung • sekitarnya</small></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg><div><b>Lombok Tengah</b><small>Praya • Kuta • Pringgarata • sekitarnya</small></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg><div><b>Area Lainnya</b><small>Konfirmasi via WhatsApp, kami usahakan sampai!</small></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONI ================= -->
+<section id="testimoni">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="kicker">Testimoni</span>
+      <h2 class="sec-title">Kata Mereka yang Sudah <span class="hl">Pakai Jasa Kami</span></h2>
+    </div>
+    <div class="grid-3">
+      <div class="t-card reveal">
+        <span class="stars">★★★★★</span>
+        <q>Minggu tetap kirim! Selamet banget buat online shop saya yang orderannya nggak kenal hari libur. Kurirnya ramah pula.</q>
+        <div class="t-user"><span class="t-avatar">SR</span><div><b>Sinta R.</b><small>Owner Online Shop • Mataram</small></div></div>
+      </div>
+      <div class="t-card reveal" style="--d:.08s">
+        <span class="stars">★★★★★</span>
+        <q>Barang dijemput cepat, dikabari terus posisinya lewat WA, sampainya rapi. Recommended banget!</q>
+        <div class="t-user"><span class="t-avatar">BH</span><div><b>Budi H.</b><small>Pelaku UMKM • Senggigi</small></div></div>
+      </div>
+      <div class="t-card reveal" style="--d:.16s">
+        <span class="stars">★★★★★</span>
+        <q>Titip beli oleh-oleh buat keluarga, diantar sampai rumah dengan aman. Harga juga bersahabat di kantong.</q>
+        <div class="t-user"><span class="t-avatar">AP</span><div><b>Andi P.</b><small>Warga Praya • Lombok Tengah</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= KONTAK / CTA ================= -->
+<section id="kontak">
+  <div class="container">
+    <div class="contact-panel reveal">
+      <div>
+        <span class="kicker">Hubungi Kami</span>
+        <h2 class="sec-title">Di Minggu Ini, Kami Tetap <span class="yl">Jalan</span> Untuk Anda!</h2>
+        <p>Satu chat = kurir meluncur. Konsultasikan kebutuhan pengirimanmu sekarang, kami balas cepat setiap hari.</p>
+        <div class="contact-actions">
+          <a class="btn btn-wa" href="https://wa.me/6287864443131?text=Halo%20Lombok%20Kurir!%20Saya%20mau%20order%20antar%20barang." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Chat WhatsApp
+          </a>
+          <a class="btn btn-ghost" href="https://tiktok.com/@jasakurirlombok" target="_blank" rel="noopener">TikTok Kami</a>
+        </div>
+        <div class="contact-nums">
+          <div><small>Telepon / WA 1</small><b>0878 6444 3131</b></div>
+          <div><small>Telepon / WA 2</small><b>0878 6444 3636</b></div>
+        </div>
+      </div>
+      <div class="contact-list">
+        <a class="contact-item" href="https://wa.me/6287864443131" target="_blank" rel="noopener">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></span>
+          <div><small>WhatsApp 1</small><b>0878 6444 3131</b></div>
+        </a>
+        <a class="contact-item" href="https://wa.me/6287864443636" target="_blank" rel="noopener">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></span>
+          <div><small>WhatsApp 2</small><b>0878 6444 3636</b></div>
+        </a>
+        <a class="contact-item" href="https://tiktok.com/@jasakurirlombok" target="_blank" rel="noopener">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></span>
+          <div><small>TikTok</small><b>@jasakurirlombok</b></div>
+        </a>
+        <div class="contact-item">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+          <div><small>Jam Operasional</small><b>Setiap Hari • 08.00–21.00 WITA (Minggu tetap buka)</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#beranda" class="brand">
+          <span class="brand-mark"><svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14h14M2 24h12M6 34h9"/><circle cx="26" cy="38" r="7"/><circle cx="54" cy="38" r="7"/><path d="M26 38l8-20h10l4 10h6l4 10"/><circle cx="42" cy="6" r="5" fill="currentColor" stroke="none"/><path d="M36 14c6-3 10 1 11 6l2 8H38z" fill="currentColor" stroke="none"/></svg></span>
+          <span class="brand-text"><b>LOMBOK <span>KURIR</span></b><small>Cepat • Aman • Terpercaya</small></span>
+        </a>
+        <p>Jasa kurir & pengiriman antar-jemput barang dan dokumen seputar Lombok. Solusi kirim Anda, setiap hari — termasuk Minggu.</p>
+        <div class="socials">
+          <a href="https://wa.me/6287864443131" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+          <a href="https://tiktok.com/@jasakurirlombok" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+        </div>
+        <div class="foot-tags"><span>#LombokKurir</span><span>#TetapSiap</span><span>#MingguTetapOn</span><span>#KirimAmanSampaiTujuan</span></div>
+      </div>
+      <div>
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="#layanan">Dokumen & Paket</a></li>
+          <li><a href="#layanan">Makanan & Minuman</a></li>
+          <li><a href="#layanan">Belanjaan</a></li>
+          <li><a href="#layanan">Oleh-Oleh</a></li>
+          <li><a href="#layanan">Barang Lainnya</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="#beranda">Beranda</a></li>
+          <li><a href="#keunggulan">Keunggulan</a></li>
+          <li><a href="#cara-order">Cara Order</a></li>
+          <li><a href="#area">Area Layanan</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontak</h4>
+        <ul>
+          <li><a href="https://wa.me/6287864443131" target="_blank" rel="noopener">WA: 0878 6444 3131</a></li>
+          <li><a href="https://wa.me/6287864443636" target="_blank" rel="noopener">WA: 0878 6444 3636</a></li>
+          <li><a href="https://tiktok.com/@jasakurirlombok" target="_blank" rel="noopener">TikTok: @jasakurirlombok</a></li>
+          <li>Mataram • Lombok Barat • Lombok Tengah • dll</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> <b>Lombok Kurir</b>. All rights reserved.</span>
+      <span>Cepat • Aman • Terpercaya — Solusi Kirim Anda!</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= FLOATING ================= -->
+<a class="wa-float" href="https://wa.me/6287864443131?text=Halo%20Lombok%20Kurir!%20Saya%20mau%20order%20antar%20barang." target="_blank" rel="noopener" aria-label="Order via WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+<button class="to-top" id="toTop" aria-label="Kembali ke atas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+<script>
+/* ============ HERO SLIDER ============ */
+const slides = [...document.querySelectorAll('.hero-slide')];
+const dotsWrap = document.getElementById('heroDots');
+const bar = document.getElementById('heroBar');
+const DUR = 6500;
+let cur = 0, timer = null;
+
+slides.forEach((_, i) => {
+  const b = document.createElement('button');
+  b.className = 'hero-dot';
+  b.setAttribute('aria-label', 'Slide ' + (i + 1));
+  b.addEventListener('click', () => go(i, true));
+  dotsWrap.appendChild(b);
+});
+const dots = [...dotsWrap.children];
+
+function paint(){
+  slides.forEach((s, i) => s.classList.toggle('active', i === cur));
+  dots.forEach((d, i) => d.classList.toggle('active', i === cur));
+}
+function restartBar(){
+  bar.style.transition = 'none'; bar.style.width = '0';
+  void bar.offsetWidth;
+  bar.style.transition = `width ${DUR}ms linear`; bar.style.width = '100%';
+}
+function restart(){ clearInterval(timer); timer = setInterval(() => go(cur + 1), DUR); }
+function go(i, user){
+  cur = (i + slides.length) % slides.length;
+  paint(); restartBar();
+  if (user) restart();
+}
+document.getElementById('heroNext').addEventListener('click', () => go(cur + 1, true));
+document.getElementById('heroPrev').addEventListener('click', () => go(cur - 1, true));
+
+const hero = document.getElementById('beranda');
+hero.addEventListener('mouseenter', () => { clearInterval(timer); bar.style.transition = 'none'; });
+hero.addEventListener('mouseleave', () => { restart(); restartBar(); });
+document.addEventListener('visibilitychange', () => {
+  document.hidden ? clearInterval(timer) : (restart(), restartBar());
+});
+paint(); restartBar(); restart();
+
+/* ============ NAVBAR SCROLL & TO-TOP ============ */
+const nav = document.getElementById('navbar');
+const toTop = document.getElementById('toTop');
+addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', scrollY > 40);
+  toTop.classList.toggle('show', scrollY > 500);
+}, { passive: true });
+toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* ============ MENU MOBILE ============ */
+document.getElementById('hamburger').addEventListener('click', () => document.body.classList.toggle('menu-open'));
+document.querySelectorAll('.menu a').forEach(a => a.addEventListener('click', () => document.body.classList.remove('menu-open')));
+
+/* ============ ACTIVE NAV LINK ============ */
+const navLinks = [...document.querySelectorAll('.menu a[href^="#"]')];
+const secObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+  });
+}, { rootMargin: '-45% 0px -50% 0px' });
+document.querySelectorAll('section[id]').forEach(s => secObs.observe(s));
+
+/* ============ SCROLL REVEAL ============ */
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revObs.unobserve(e.target); } });
+}, { threshold: .15 });
+document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+
+/* ============ COUNTER ANIMASI ============ */
+const cntObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target; cntObs.unobserve(el);
+    const target = +el.dataset.count, suffix = el.dataset.suffix || '';
+    const t0 = performance.now(), dur = 1500;
+    const tick = t => {
+      const p = Math.min((t - t0) / dur, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * ease).toLocaleString('id-ID') + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  });
+}, { threshold: .6 });
+document.querySelectorAll('[data-count]').forEach(el => cntObs.observe(el));
+
+/* ============ TAHUN FOOTER ============ */
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
