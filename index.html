@@ -32,7 +32,8 @@ img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 ul{list-style:none}
 button{font-family:inherit;border:none;background:none;cursor:pointer}
-.container{width:min(1180px,100% - (var(--pad-x) * 2));margin-inline:auto}
+/* CONTAINER AMAN: max-width + padding-inline */
+.container{width:100%;max-width:1220px;margin-inline:auto;padding-inline:var(--pad-x)}
 section{padding:var(--sec-y) 0}
 
 /* ============ 2. UTILITAS ============ */
@@ -82,13 +83,24 @@ body.menu-open .hamburger span:nth-child(1){transform:translateY(8px) rotate(45d
 body.menu-open .hamburger span:nth-child(2){opacity:0}
 body.menu-open .hamburger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
 
-/* ============ 4. HERO SLIDER ============ */
-.hero{position:relative;overflow:hidden;background:var(--navy)}
-.hero-slide{position:absolute;inset:0;display:flex;align-items:center;background-size:cover;background-position:center;opacity:0;visibility:hidden;transform:scale(1.07);transition:opacity .9s ease,visibility .9s,transform 7s ease-out}
-.hero-slide.active{opacity:1;visibility:visible;transform:scale(1)}
+/* ============ 4. HERO SLIDER (FIX: tinggi eksplisit) ============ */
+.hero{
+  position:relative;overflow:hidden;background:var(--navy);
+  padding:0;
+  height:clamp(600px,100vh,900px);
+  height:clamp(600px,100svh,900px);
+}
+.hero-slide{
+  position:absolute;inset:0;z-index:1;
+  display:flex;align-items:center;
+  background-size:cover;background-position:center;background-color:var(--navy);
+  opacity:0;visibility:hidden;transform:scale(1.07);
+  transition:opacity .9s ease,visibility .9s,transform 7s ease-out;
+}
+.hero-slide.active{opacity:1;visibility:visible;transform:scale(1);z-index:2}
 .hero-slide::before{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(6,28,56,.94) 0%,rgba(9,45,86,.80) 48%,rgba(10,60,110,.38) 100%)}
 .hero-slide::after{content:'';position:absolute;inset:auto 0 0 0;height:140px;background:linear-gradient(transparent,rgba(6,28,56,.55))}
-.hero-copy{position:relative;z-index:2;padding:150px 0 150px;max-width:780px}
+.hero-copy{position:relative;z-index:2;padding:90px 0 110px;max-width:780px}
 .hero-badge{display:inline-flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(6px);color:#fff;padding:.5rem 1.15rem;border-radius:999px;font-weight:700;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase}
 .pulse-dot{width:9px;height:9px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 0 rgba(255,210,31,.7);animation:pulse 1.9s infinite}
 @keyframes pulse{to{box-shadow:0 0 0 14px rgba(255,210,31,0)}}
@@ -105,11 +117,11 @@ body.menu-open .hamburger span:nth-child(3){transform:translateY(-8px) rotate(-4
 .hero-arrow{width:46px;height:46px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);color:#fff;background:rgba(255,255,255,.10);display:grid;place-items:center;transition:.3s;backdrop-filter:blur(4px)}
 .hero-arrow svg{width:20px;height:20px}
 .hero-arrow:hover{background:var(--yellow);color:var(--navy);border-color:var(--yellow)}
-.hero-progress{position:absolute;bottom:0;left:0;right:0;height:4px;background:rgba(255,255,255,.16);z-index:7}
+.hero-progress{position:absolute;bottom:0;left:0;right:0;height:4px;background:rgba(255,255,255,.16);z-index:5}
 .hero-progress span{display:block;height:100%;background:var(--yellow);width:0}
 
-/* ============ 5. STATISTIK (overlap) ============ */
-.stats{padding:0;margin-top:-64px;position:relative;z-index:9}
+/* ============ 5. STATISTIK ============ */
+.stats{padding:26px 0 0}
 .stats-card{background:#fff;border-radius:20px;box-shadow:var(--shadow);display:grid;grid-template-columns:repeat(4,1fr);padding:clamp(18px,3vw,28px) clamp(14px,2.5vw,26px)}
 .stat{display:flex;gap:14px;align-items:center;padding:8px 16px}
 .stat + .stat{border-left:1px solid var(--line)}
@@ -119,7 +131,7 @@ body.menu-open .hamburger span:nth-child(3){transform:translateY(-8px) rotate(-4
 .stat small{color:var(--muted);font-weight:600;font-size:.8rem}
 
 /* ============ 6. MARQUEE ============ */
-.marquee{background:var(--navy);color:#fff;overflow:hidden;padding:15px 0;margin-top:var(--sec-y)}
+.marquee{background:var(--navy);color:#fff;overflow:hidden;padding:15px 0;margin-top:clamp(40px,6vw,64px)}
 .marquee-track{display:flex;width:max-content;animation:scroll 28s linear infinite}
 .marquee-group{display:flex;align-items:center;gap:2.4rem;padding-right:2.4rem;font-family:var(--font-d);font-style:italic;font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:.95rem;white-space:nowrap}
 .marquee-group i{color:var(--yellow);font-style:normal}
@@ -261,7 +273,7 @@ footer{background:var(--navy-3);color:rgba(255,255,255,.82);padding:clamp(40px,6
   .stats-card{grid-template-columns:repeat(2,1fr);gap:8px}
   .stat + .stat{border-left:none}
   .stat:nth-child(even){border-left:1px solid var(--line)}
-  .hero-copy{padding:130px 0 130px}
+  .hero-copy{padding:80px 0 100px}
   .contact-nums{gap:16px}
 }
 </style>
@@ -300,7 +312,7 @@ footer{background:var(--navy-3);color:rgba(255,255,255,.82);padding:clamp(40px,6
 </header>
 
 <!-- ================= HERO SLIDER ================= -->
-<section class="hero" id="beranda" style="padding:0">
+<section class="hero" id="beranda">
   <!-- Ganti URL background di bawah dengan foto asli tim Lombok Kurir untuk hasil maksimal -->
   <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1920&q=60')">
     <div class="container"><div class="hero-copy">
@@ -685,7 +697,7 @@ const hero = document.getElementById('beranda');
 hero.addEventListener('mouseenter', () => { clearInterval(timer); bar.style.transition = 'none'; });
 hero.addEventListener('mouseleave', () => { restart(); restartBar(); });
 document.addEventListener('visibilitychange', () => {
-  document.hidden ? clearInterval(timer) : (restart(), restartBar());
+  if (document.hidden) { clearInterval(timer); } else { restart(); restartBar(); }
 });
 paint(); restartBar(); restart();
 
